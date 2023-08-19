@@ -1,10 +1,13 @@
 package org.example.controllers;
 
+import io.swagger.v3.core.util.Json;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.CategoryCreateDTO;
 import org.example.entities.CategoryEntity;
 import org.example.repositories.ICategoryRepo;
+import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +15,7 @@ import java.util.List;
 
 /**
  * Custom controller
+ * Add correct mappings, don't respond with jsons or db entities
  */
 
 @RestController
@@ -21,8 +25,8 @@ public class CategoryController {
     private final ICategoryRepo catRepo;
 
     // Create
-    @PostMapping("/create")
-    public ResponseEntity<CategoryEntity> create(@RequestBody CategoryCreateDTO dto) {
+    @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> create(@RequestBody CategoryCreateDTO dto) {
         var newEntity = new CategoryEntity();
         newEntity.setName(dto.getName());
         newEntity.setImageURL(dto.getImageURL());
@@ -30,7 +34,7 @@ public class CategoryController {
 
         catRepo.save(newEntity);
 
-        return new ResponseEntity<>(newEntity, HttpStatus.OK);
+        return new ResponseEntity<>(ToJson(newEntity), HttpStatus.OK);
     }
 
     // Read
@@ -42,19 +46,16 @@ public class CategoryController {
     }
 
     //#Read by id
-    @GetMapping("/{id}") // add CategoryItem mapping
-    public ResponseEntity index(@PathVariable Integer id) {
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> index(@PathVariable Integer id) {
         var cat = catRepo.findById(id);
-        if (cat.isPresent()) {
-            return new ResponseEntity<>(cat.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("404 Not Found", HttpStatus.NOT_FOUND);
-        }
+        return cat.map(categoryEntity -> new ResponseEntity<>(ToJson(categoryEntity), HttpStatus.OK))
+                .orElseGet(() -> BadRequestFor(id));
     }
 
     // Update
-    @PostMapping("/{id}")
-    public ResponseEntity update(@PathVariable Integer id, @RequestBody CategoryCreateDTO dto) {
+    @PostMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> update(@PathVariable Integer id, @RequestBody CategoryCreateDTO dto) {
         var categoryResult = catRepo.findById(id);
 
         if (categoryResult.isPresent()) {
@@ -65,20 +66,31 @@ public class CategoryController {
 
             catRepo.save(category);
 
-            return new ResponseEntity<>(category, HttpStatus.OK);
+            return new ResponseEntity<>(ToJson(category), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("400 Bad Request", HttpStatus.BAD_REQUEST);
+            return BadRequestFor(id);
         }
     }
 
     // Delete
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> delete(@PathVariable Integer id) {
         if (catRepo.existsById(id)) {
             catRepo.deleteById(id);
             return new ResponseEntity<>("Deleted successfully", HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("An item with the requested id doesn't exist.", HttpStatus.BAD_REQUEST);
+            return BadRequestFor(id);
         }
+    }
+
+    private ResponseEntity<String> BadRequestFor(Integer id) {
+        var jo = new JSONObject();
+        jo.put("status", "400 Bad Request");
+        jo.put("message", "The item with id \"" + id + "\" doesn't exist");
+        return new ResponseEntity<>(jo.toString(), HttpStatus.BAD_REQUEST);
+    }
+    
+    private String ToJson(Object value) {
+        return ToJson(value);
     }
 }
