@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Custom controller
+ */
+
 @RestController
+@RequestMapping(path = "${apiPrefix}/categories")
 @RequiredArgsConstructor
 public class CategoryController {
     private final ICategoryRepo catRepo;
