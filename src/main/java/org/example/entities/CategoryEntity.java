@@ -8,7 +8,7 @@ public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "name", length = 200, nullable = false)
+    @Column(name = "name", length = 200, nullable = false, unique = true)
     private String name;
     @Column(name = "image_path", length = 400, nullable = false)
     private String imageURL;
