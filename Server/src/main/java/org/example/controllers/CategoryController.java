@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Custom controller
+ * <b>Custom controller</b> <p>
  * Add correct mappings, don't respond with jsons or db entities
  */
 
 @RestController
+@CrossOrigin
 @RequestMapping(path = "${apiPrefix}/categories")
 @RequiredArgsConstructor
 public class CategoryController {
