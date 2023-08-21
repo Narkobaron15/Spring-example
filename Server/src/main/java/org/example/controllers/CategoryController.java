@@ -26,7 +26,7 @@ public class CategoryController {
 
     // Create
     @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> create(@RequestBody CategoryCreateDTO dto) {
+    public ResponseEntity create(@RequestBody CategoryCreateDTO dto) {
         var newEntity = new CategoryEntity();
         newEntity.setName(dto.getName());
         newEntity.setImageURL(dto.getImageURL());
@@ -34,7 +34,7 @@ public class CategoryController {
 
         catRepo.save(newEntity);
 
-        return new ResponseEntity<>(ToJson(newEntity), HttpStatus.OK);
+        return new ResponseEntity<>(newEntity, HttpStatus.OK);
     }
 
     // Read
@@ -47,15 +47,15 @@ public class CategoryController {
 
     //#Read by id
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> index(@PathVariable Integer id) {
+    public ResponseEntity index(@PathVariable Integer id) {
         var cat = catRepo.findById(id);
-        return cat.map(categoryEntity -> new ResponseEntity<>(ToJson(categoryEntity), HttpStatus.OK))
+        return cat.map(categoryEntity -> new ResponseEntity(categoryEntity, HttpStatus.OK))
                 .orElseGet(() -> BadRequestFor(id));
     }
 
     // Update
     @PostMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> update(@PathVariable Integer id, @RequestBody CategoryCreateDTO dto) {
+    public ResponseEntity update(@PathVariable Integer id, @RequestBody CategoryCreateDTO dto) {
         var categoryResult = catRepo.findById(id);
 
         if (categoryResult.isPresent()) {
@@ -66,7 +66,7 @@ public class CategoryController {
 
             catRepo.save(category);
 
-            return new ResponseEntity<>(ToJson(category), HttpStatus.OK);
+            return new ResponseEntity<>(category, HttpStatus.OK);
         } else {
             return BadRequestFor(id);
         }
@@ -77,7 +77,8 @@ public class CategoryController {
     public ResponseEntity<String> delete(@PathVariable Integer id) {
         if (catRepo.existsById(id)) {
             catRepo.deleteById(id);
-            return new ResponseEntity<>("Deleted successfully", HttpStatus.OK);
+            var jo = new JSONObject("Deleted successfully");
+            return new ResponseEntity<>(jo.toString(), HttpStatus.OK);
         } else {
             return BadRequestFor(id);
         }
@@ -88,9 +89,5 @@ public class CategoryController {
         jo.put("status", "400 Bad Request");
         jo.put("message", "The item with id \"" + id + "\" doesn't exist");
         return new ResponseEntity<>(jo.toString(), HttpStatus.BAD_REQUEST);
-    }
-    
-    private String ToJson(Object value) {
-        return ToJson(value);
     }
 }
