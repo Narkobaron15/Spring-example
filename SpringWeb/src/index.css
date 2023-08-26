@@ -5,3 +5,7 @@
 body {
   margin: 1rem 2rem;
 }
+
+table {
+  @apply table-auto;
+}
