@@ -1,5 +1,6 @@
 package org.example.controllers;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.CategoryCreateDTO;
 import org.example.dto.CategoryItemDTO;
@@ -20,7 +21,6 @@ import java.util.List;
  */
 
 @RestController
-@CrossOrigin
 @RequestMapping(path = "${apiPrefix}/categories")
 @RequiredArgsConstructor
 public class CategoryController {
@@ -29,15 +29,10 @@ public class CategoryController {
 
     // Create
     @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity create(@RequestBody CategoryCreateDTO dto) {
-        var newEntity = new CategoryEntity();
-        newEntity.setName(dto.getName());
-        newEntity.setImageURL(dto.getImageURL());
-        newEntity.setDescription(dto.getDescription());
-
+    public ResponseEntity<CategoryItemDTO> create(@Valid @RequestBody CategoryCreateDTO dto) {
+        var newEntity = mapper.createDTOToEntity(dto);
         catRepo.save(newEntity);
-
-        return new ResponseEntity<>(newEntity, HttpStatus.OK);
+        return new ResponseEntity<>(mapper.entityToItemDTO(newEntity), HttpStatus.OK);
     }
 
     // Read
@@ -58,7 +53,7 @@ public class CategoryController {
 
     // Update
     @PostMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CategoryItemDTO> update(@PathVariable Integer id, @RequestBody CategoryCreateDTO dto) {
+    public ResponseEntity<CategoryItemDTO> update(@PathVariable Integer id, @Valid @RequestBody CategoryCreateDTO dto) {
         if (catRepo.existsById(id)) {
             var category = mapper.createDTOToEntity(dto);
             category.setId(id);

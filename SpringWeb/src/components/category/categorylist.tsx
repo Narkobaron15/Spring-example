@@ -1,6 +1,6 @@
 import React from 'react';
 import ICategoryItem from '../../models/category';
-import { category_common } from '../../requests';
+import api_common from '../../requests';
 import './categories.css';
 import Category from './category';
 
@@ -8,7 +8,7 @@ export default function CategoryList() {
   const [categories, setCategories] = React.useState<ICategoryItem[]>([]);
 
   React.useEffect(() => {
-    category_common.get('')
+    api_common.get('/categories/')
       .then(response => setCategories(response.data))
       .catch(error => console.error('Error fetching categories:', error));
   }, []);
@@ -20,16 +20,17 @@ export default function CategoryList() {
         <colgroup>
           <col className="w-1/12" />
           <col className="w-1/12" />
-          <col className="w-3/12" />
-          <col className="w-7/12" />
-          {/* Add action buttons */}
+          <col className="w-2/12" />
+          <col className="w-6/12" />
+          <col className="w-2/12" />
         </colgroup>
         <thead>
           <tr>
-            <th scope='col'></th>
-            <th scope='col'>ID</th>
-            <th scope='col'>Name</th>
-            <th scope='col'>Description</th>
+            <th scope="col"></th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
