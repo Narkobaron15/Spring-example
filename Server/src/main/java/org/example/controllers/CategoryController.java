@@ -1,10 +1,11 @@
 package org.example.controllers;
 
-import io.swagger.v3.core.util.Json;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.CategoryCreateDTO;
+import org.example.dto.CategoryItemDTO;
 import org.example.entities.CategoryEntity;
-import org.example.repositories.ICategoryRepo;
+import org.example.mappers.CategoryMapper;
+import org.example.repositories.CategoryRepo;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,7 +24,8 @@ import java.util.List;
 @RequestMapping(path = "${apiPrefix}/categories")
 @RequiredArgsConstructor
 public class CategoryController {
-    private final ICategoryRepo catRepo;
+    private final CategoryRepo catRepo;
+    private final CategoryMapper mapper;
 
     // Create
     @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -42,32 +44,27 @@ public class CategoryController {
 
     //# Read all
     @GetMapping("/") // add CategoryItem mapping
-    public ResponseEntity<List<CategoryEntity>> index() {
-        return new ResponseEntity<>(catRepo.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<CategoryItemDTO>> index() {
+        return new ResponseEntity<>(mapper.entitiesToItemDTOs(catRepo.findAll()), HttpStatus.OK);
     }
 
     //#Read by id
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity index(@PathVariable Integer id) {
+    public ResponseEntity<CategoryItemDTO> index(@PathVariable Integer id) {
         var cat = catRepo.findById(id);
-        return cat.map(categoryEntity -> new ResponseEntity(categoryEntity, HttpStatus.OK))
+        return cat.map(entity -> new ResponseEntity(mapper.entityToItemDTO(entity), HttpStatus.OK))
                 .orElseGet(() -> BadRequestFor(id));
     }
 
     // Update
     @PostMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity update(@PathVariable Integer id, @RequestBody CategoryCreateDTO dto) {
-        var categoryResult = catRepo.findById(id);
-
-        if (categoryResult.isPresent()) {
-            var category = categoryResult.get();
-            category.setName(dto.getName());
-            category.setImageURL(dto.getImageURL());
-            category.setDescription(dto.getDescription());
-
+    public ResponseEntity<CategoryItemDTO> update(@PathVariable Integer id, @RequestBody CategoryCreateDTO dto) {
+        if (catRepo.existsById(id)) {
+            var category = mapper.createDTOToEntity(dto);
+            category.setId(id);
             catRepo.save(category);
 
-            return new ResponseEntity<>(category, HttpStatus.OK);
+            return new ResponseEntity<>(mapper.entityToItemDTO(category), HttpStatus.OK);
         } else {
             return BadRequestFor(id);
         }
@@ -85,7 +82,7 @@ public class CategoryController {
         }
     }
 
-    private ResponseEntity<String> BadRequestFor(Integer id) {
+    private ResponseEntity BadRequestFor(Integer id) {
         var jo = new JSONObject();
         jo.put("status", "400 Bad Request");
         jo.put("message", "The item with id \"" + id + "\" doesn't exist");

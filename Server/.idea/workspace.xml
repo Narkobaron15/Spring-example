@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Added error handling">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Main.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repositories/ICategoryRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/CategoryRepo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -75,7 +79,7 @@
       </method>
     </configuration>
     <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="spring_example" />
+      <module name="spring-example" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.Main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -96,6 +100,9 @@
       <workItem from="1692616956385" duration="1251000" />
       <workItem from="1692619890268" duration="3446000" />
       <workItem from="1692695790717" duration="1386000" />
+      <workItem from="1692728193611" duration="104000" />
+      <workItem from="1692968638964" duration="753000" />
+      <workItem from="1693030357132" duration="5302000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />
@@ -137,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692440777937</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added error handling">
+      <option name="closed" value="true" />
+      <created>1692728237616</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1692728237616</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
