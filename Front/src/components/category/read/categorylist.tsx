@@ -1,11 +1,12 @@
 import React from 'react';
-import ICategoryItem from '../../models/category';
-import api_common from '../../requests';
-import './categories.css';
-import Category from './category';
+import '../categories.css';
+import CategoryComponent from './category';
+
+import api_common from '../../../requests';
+import { CategoryItem } from '../../../models/category';
 
 export default function CategoryList() {
-  const [categories, setCategories] = React.useState<ICategoryItem[]>([]);
+  const [categories, setCategories] = React.useState<CategoryItem[]>([]);
 
   React.useEffect(() => {
     api_common.get('/categories/')
@@ -34,7 +35,7 @@ export default function CategoryList() {
           </tr>
         </thead>
         <tbody>
-          {categories.map(cat => <Category category={cat} key={cat.id} />)}
+          {categories.map(cat => <CategoryComponent category={cat} key={cat.id} />)}
         </tbody>
       </table>
     </>

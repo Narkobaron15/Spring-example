@@ -12,7 +12,7 @@ public class CategoryEntity {
     private String name;
     @Column(name = "image_path", length = 400, nullable = false)
     private String imageURL;
-    @Column(name = "description", length = 1000 /*, nullable = true*/)
+    @Column(name = "description", length = 1000, nullable = false)
     private String description;
 
     /* one-to-many relationship for products

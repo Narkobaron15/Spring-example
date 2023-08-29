@@ -12,7 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Path;
 import java.util.List;
 
 /**
@@ -27,9 +29,11 @@ public class CategoryController {
     private final CategoryRepo catRepo;
     private final CategoryMapper mapper;
 
+    // Fix the problem with accepting the POST request
+
     // Create
-    @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CategoryItemDTO> create(@Valid @RequestBody CategoryCreateDTO dto) {
+    @PostMapping("/create")
+    public ResponseEntity<CategoryItemDTO> create(@Valid @ModelAttribute CategoryCreateDTO dto) {
         var newEntity = mapper.createDTOToEntity(dto);
         catRepo.save(newEntity);
         return new ResponseEntity<>(mapper.entityToItemDTO(newEntity), HttpStatus.OK);
@@ -37,13 +41,13 @@ public class CategoryController {
 
     // Read
 
-    //# Read all
-    @GetMapping("/") // add CategoryItem mapping
+    /// Read all
+    @GetMapping(value = {"", "/"}) // add CategoryItem mapping
     public ResponseEntity<List<CategoryItemDTO>> index() {
         return new ResponseEntity<>(mapper.entitiesToItemDTOs(catRepo.findAll()), HttpStatus.OK);
     }
 
-    //#Read by id
+    /// Read by id
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CategoryItemDTO> index(@PathVariable Integer id) {
         var cat = catRepo.findById(id);
@@ -52,8 +56,8 @@ public class CategoryController {
     }
 
     // Update
-    @PostMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CategoryItemDTO> update(@PathVariable Integer id, @Valid @RequestBody CategoryCreateDTO dto) {
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CategoryItemDTO> update(@PathVariable Integer id, @Valid @ModelAttribute CategoryCreateDTO dto) {
         if (catRepo.existsById(id)) {
             var category = mapper.createDTOToEntity(dto);
             category.setId(id);

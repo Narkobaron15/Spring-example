@@ -4,19 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Added error handling">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/CorsConfig.java" afterDir="false" />
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configurations/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/CorsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryCreateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringWeb/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringWeb/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringWeb/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringWeb/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/components/category/category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringWeb/src/components/category/category.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/components/category/categorylist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringWeb/src/components/category/categorylist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/components/layout/default_navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringWeb/src/components/layout/default_navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/env/app_env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringWeb/src/env/app_env.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/requests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringWeb/src/requests.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/.eslintrc.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/public/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/assets/menu.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/components/category/categories.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/components/category/category.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/components/category/categorylist.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/components/layout/default_navbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/components/layout/default_navbar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/components/layout/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/env/app_env.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/main.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/models/category.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/requests.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/src/vite-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/tailwind.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/tsconfig.node.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringWeb/vite.config.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +86,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;de731e0677aabd0c1b3c0c1e24f40790&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;7eb895d24e5ba49e43771896fde572d8&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -109,7 +128,10 @@
       <workItem from="1692695790717" duration="1386000" />
       <workItem from="1692728193611" duration="104000" />
       <workItem from="1692968638964" duration="753000" />
-      <workItem from="1693030357132" duration="8813000" />
+      <workItem from="1693030357132" duration="9469000" />
+      <workItem from="1693058754414" duration="628000" />
+      <workItem from="1693223620929" duration="4556000" />
+      <workItem from="1693299799019" duration="2646000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />

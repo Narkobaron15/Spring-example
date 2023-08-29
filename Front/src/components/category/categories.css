@@ -1,0 +1,47 @@
+thead {
+    @apply bg-gray-100 dark:bg-gray-800;
+}
+
+th, td {
+    @apply px-4 py-2 text-center;
+}
+
+table {
+    @apply min-w-full table-auto;
+}
+
+h1.form-header {
+    @apply text-2xl font-semibold mb-4 text-center;
+}
+
+form {
+    @apply max-w-md mx-auto p-6 bg-white rounded shadow-md;
+}
+
+.form label {
+    @apply block text-sm font-medium text-gray-700;
+}
+
+.form input {
+    @apply mt-1 p-2 w-full border rounded-md;
+}
+
+.form textarea {
+    @apply w-full;
+}
+
+.error-message {
+    @apply text-red-500 text-sm;
+}
+
+.form-btn {
+    @apply text-white px-4 py-2 rounded-md;
+}
+
+button.create-btn, a.create-btn {
+    @apply bg-blue-500 form-btn hover:bg-blue-600;
+}
+
+button.cancel-btn, a.cancel-btn {
+    @apply bg-red-500 form-btn hover:bg-red-600 mr-3;
+}
