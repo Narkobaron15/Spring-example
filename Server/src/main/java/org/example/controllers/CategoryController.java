@@ -33,10 +33,13 @@ public class CategoryController {
 
     // Create
     @PostMapping("/create")
-    public ResponseEntity<CategoryItemDTO> create(@Valid @ModelAttribute CategoryCreateDTO dto) {
-        var newEntity = mapper.createDTOToEntity(dto);
+    public ResponseEntity<CategoryItemDTO> create(
+            @Valid @ModelAttribute CategoryCreateDTO createDTO
+    ) {
+        CategoryEntity newEntity = mapper.createDTOToEntity(createDTO);
         catRepo.save(newEntity);
-        return new ResponseEntity<>(mapper.entityToItemDTO(newEntity), HttpStatus.OK);
+        CategoryItemDTO itemDTO = mapper.entityToItemDTO(newEntity);
+        return new ResponseEntity<>(itemDTO, HttpStatus.OK);
     }
 
     // Read
@@ -44,13 +47,16 @@ public class CategoryController {
     /// Read all
     @GetMapping(value = {"", "/"}) // add CategoryItem mapping
     public ResponseEntity<List<CategoryItemDTO>> index() {
-        return new ResponseEntity<>(mapper.entitiesToItemDTOs(catRepo.findAll()), HttpStatus.OK);
+        List<CategoryItemDTO> dtoList = mapper.entitiesToItemDTOs(catRepo.findAll());
+        return new ResponseEntity<>(dtoList, HttpStatus.OK);
     }
 
     /// Read by id
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CategoryItemDTO> index(@PathVariable Integer id) {
+        // optional (nullable) category entity
         var cat = catRepo.findById(id);
+        // maps to ItemDTO or bad request
         return cat.map(entity -> new ResponseEntity(mapper.entityToItemDTO(entity), HttpStatus.OK))
                 .orElseGet(() -> BadRequestFor(id));
     }
@@ -58,28 +64,30 @@ public class CategoryController {
     // Update
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CategoryItemDTO> update(@PathVariable Integer id, @Valid @ModelAttribute CategoryCreateDTO dto) {
-        if (catRepo.existsById(id)) {
-            var category = mapper.createDTOToEntity(dto);
-            category.setId(id);
-            catRepo.save(category);
-
-            return new ResponseEntity<>(mapper.entityToItemDTO(category), HttpStatus.OK);
-        } else {
+        if (!catRepo.existsById(id)) {
             return BadRequestFor(id);
         }
+
+        CategoryEntity category = mapper.createDTOToEntity(dto);
+        category.setId(id);
+        catRepo.save(category);
+
+        CategoryItemDTO updatedCatDTO = mapper.entityToItemDTO(category);
+        return new ResponseEntity<>(updatedCatDTO, HttpStatus.OK);
     }
 
     // Delete
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> delete(@PathVariable Integer id) {
-        if (catRepo.existsById(id)) {
-            catRepo.deleteById(id);
-            var jo = new JSONObject();
-            jo.put("message", "Deleted successfully");
-            return new ResponseEntity<>(jo.toString(), HttpStatus.OK);
-        } else {
+        if (!catRepo.existsById(id)) {
             return BadRequestFor(id);
         }
+
+        catRepo.deleteById(id);
+
+        var jo = new JSONObject();
+        jo.put("message", "Deleted successfully");
+        return new ResponseEntity<>(jo.toString(), HttpStatus.OK);
     }
 
     private ResponseEntity BadRequestFor(Integer id) {

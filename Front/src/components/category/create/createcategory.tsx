@@ -23,8 +23,6 @@ export default function CreateCategory() {
             })
             .then(() => navigate("/"))
             .catch(err => {
-                // console.warn(err);
-
                 setRequestSent(false);
                 toast.error(err.message);
             });
