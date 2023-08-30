@@ -12,10 +12,10 @@ export default function CreateCategory() {
     const navigate = useNavigate();
     const [requestSent, setRequestSent] = React.useState<boolean>(false);
 
-    const onSubmit = async (val: CategoryCreateItem) => {
+    const onSubmit = (val: CategoryCreateItem) => {
         setRequestSent(true);
 
-        await api_common.post('/categories/create', val,
+        api_common.post('/categories/create', val,
             { // http request params
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -26,7 +26,7 @@ export default function CreateCategory() {
                 // console.warn(err);
 
                 setRequestSent(false);
-                toast.error(err.response.data.message);
+                toast.error(err.message);
             });
     };
 

@@ -36,7 +36,7 @@ export default function EditCategory() {
             .then(() => navigate("/"))
             .catch(err => {
                 setRequestSent(false);
-                toast.error(err.response.data.message);
+                toast.error(err.message);
             });
     };
 

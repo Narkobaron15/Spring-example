@@ -39,7 +39,7 @@ form {
 }
 
 button.create-btn, a.create-btn {
-    @apply bg-blue-500 form-btn hover:bg-blue-600;
+    @apply bg-blue-500 form-btn hover:bg-blue-600 disabled:bg-blue-400;
 }
 
 button.cancel-btn, a.cancel-btn {
