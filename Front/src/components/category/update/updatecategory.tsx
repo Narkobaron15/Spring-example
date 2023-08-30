@@ -17,11 +17,11 @@ export default function EditCategory() {
 
     React.useEffect(() => {
         api_common.get('/categories/' + id)
-        .then(r => setCategory(r.data))
-        .catch(() => {
-            toast.error("This category doesn't exist.");
-            navigate('/');
-        });
+            .then(r => setCategory(r.data))
+            .catch(() => {
+                toast.error("This category doesn't exist.");
+                navigate('/');
+            });
     }, [id]);
 
     const onSubmit = (val: CategoryCreateItem) => {
@@ -35,8 +35,6 @@ export default function EditCategory() {
             })
             .then(() => navigate("/"))
             .catch(err => {
-                // console.warn(err);
-
                 setRequestSent(false);
                 toast.error(err.response.data.message);
             });
@@ -45,7 +43,12 @@ export default function EditCategory() {
     return (
         <>
             <h1 className='form-header'>Edit category {category.name}</h1>
-            <CUcore initialValues={category} validationSchema={catCreateSchema} submit={onSubmit} requestSent={requestSent} update={true} />
+            <CUcore
+                initialValues={category}
+                validationSchema={catCreateSchema}
+                submit={onSubmit}
+                requestSent={requestSent}
+                update={true} />
         </>
     );
 }

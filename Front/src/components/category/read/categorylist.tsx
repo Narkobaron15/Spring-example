@@ -35,7 +35,11 @@ export default function CategoryList() {
           </tr>
         </thead>
         <tbody>
-          {categories.map(cat => <CategoryComponent category={cat} key={cat.id} />)}
+          {categories.map((cat, index) =>
+            <CategoryComponent
+              instance={cat}
+              removeCallback={() => setCategories(categories.filter(x => x !== cat))}
+              key={index} />)}
         </tbody>
       </table>
     </>

@@ -33,7 +33,12 @@ export default function CreateCategory() {
     return (
         <>
             <h1 className='form-header'>Create Category Item</h1>
-            <CUcore initialValues={catCreateInitVals} validationSchema={catCreateSchema} submit={onSubmit} requestSent={requestSent} />
+            <CUcore
+                initialValues={catCreateInitVals}
+                validationSchema={catCreateSchema}
+                submit={onSubmit}
+                requestSent={requestSent}
+                update={false} />
         </>
     );
 }

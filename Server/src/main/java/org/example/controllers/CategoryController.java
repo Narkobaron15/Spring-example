@@ -74,7 +74,8 @@ public class CategoryController {
     public ResponseEntity<String> delete(@PathVariable Integer id) {
         if (catRepo.existsById(id)) {
             catRepo.deleteById(id);
-            var jo = new JSONObject("Deleted successfully");
+            var jo = new JSONObject();
+            jo.put("message", "Deleted successfully");
             return new ResponseEntity<>(jo.toString(), HttpStatus.OK);
         } else {
             return BadRequestFor(id);
