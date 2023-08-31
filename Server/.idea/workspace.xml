@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +19,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -106,7 +107,8 @@
       <workItem from="1693299799019" duration="2646000" />
       <workItem from="1693404821411" duration="2768000" />
       <workItem from="1693427569566" duration="696000" />
-      <workItem from="1693429974736" duration="377000" />
+      <workItem from="1693429974736" duration="412000" />
+      <workItem from="1693471095228" duration="3686000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />
@@ -156,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692728237616</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Improved code nesting">
+      <option name="closed" value="true" />
+      <created>1693430382525</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1693430382525</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +189,7 @@
     <MESSAGE value="Added Spring JPA configs&#10;Implemented CRUD&#10;Added DTOs and a category repository" />
     <MESSAGE value="Added prefix to the CategoryController" />
     <MESSAGE value="Added error handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added error handling" />
+    <MESSAGE value="Improved code nesting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved code nesting" />
   </component>
 </project>

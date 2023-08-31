@@ -8,13 +8,11 @@ import org.example.entities.CategoryEntity;
 import org.example.mappers.CategoryMapper;
 import org.example.repositories.CategoryRepo;
 import org.json.JSONObject;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.nio.file.Path;
 import java.util.List;
 
 /**
@@ -29,17 +27,21 @@ public class CategoryController {
     private final CategoryRepo catRepo;
     private final CategoryMapper mapper;
 
-    // Fix the problem with accepting the POST request
-
     // Create
-    @PostMapping("/create")
+    @PostMapping(
+            value = "/create",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+    )
     public ResponseEntity<CategoryItemDTO> create(
-            @Valid @ModelAttribute CategoryCreateDTO createDTO
+            @Valid @ModelAttribute CategoryCreateDTO createDTO/*,
+            MultipartFile file*/
     ) {
+//        System.out.println(file.toString());
+
         CategoryEntity newEntity = mapper.createDTOToEntity(createDTO);
         catRepo.save(newEntity);
         CategoryItemDTO itemDTO = mapper.entityToItemDTO(newEntity);
-        return new ResponseEntity<>(itemDTO, HttpStatus.OK);
+        return ResponseEntity.ok(itemDTO);
     }
 
     // Read
@@ -48,24 +50,34 @@ public class CategoryController {
     @GetMapping(value = {"", "/"}) // add CategoryItem mapping
     public ResponseEntity<List<CategoryItemDTO>> index() {
         List<CategoryItemDTO> dtoList = mapper.entitiesToItemDTOs(catRepo.findAll());
-        return new ResponseEntity<>(dtoList, HttpStatus.OK);
+        return ResponseEntity.ok(dtoList);
     }
 
     /// Read by id
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(
+            value = "/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
     public ResponseEntity<CategoryItemDTO> index(@PathVariable Integer id) {
         // optional (nullable) category entity
         var cat = catRepo.findById(id);
         // maps to ItemDTO or bad request
-        return cat.map(entity -> new ResponseEntity(mapper.entityToItemDTO(entity), HttpStatus.OK))
-                .orElseGet(() -> BadRequestFor(id));
+        return cat.map(entity -> ResponseEntity.ok(mapper.entityToItemDTO(entity)))
+                .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
     // Update
-    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CategoryItemDTO> update(@PathVariable Integer id, @Valid @ModelAttribute CategoryCreateDTO dto) {
+    @PutMapping(
+            value = "/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+    )
+    public ResponseEntity<CategoryItemDTO> update(
+            @PathVariable Integer id,
+            @Valid @ModelAttribute CategoryCreateDTO dto
+    ) {
         if (!catRepo.existsById(id)) {
-            return BadRequestFor(id);
+            return ResponseEntity.notFound().build();
         }
 
         CategoryEntity category = mapper.createDTOToEntity(dto);
@@ -73,27 +85,23 @@ public class CategoryController {
         catRepo.save(category);
 
         CategoryItemDTO updatedCatDTO = mapper.entityToItemDTO(category);
-        return new ResponseEntity<>(updatedCatDTO, HttpStatus.OK);
+        return ResponseEntity.ok(updatedCatDTO);
     }
 
     // Delete
-    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(
+            value = "/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
     public ResponseEntity<String> delete(@PathVariable Integer id) {
         if (!catRepo.existsById(id)) {
-            return BadRequestFor(id);
+            return ResponseEntity.notFound().build();
         }
 
         catRepo.deleteById(id);
 
         var jo = new JSONObject();
         jo.put("message", "Deleted successfully");
-        return new ResponseEntity<>(jo.toString(), HttpStatus.OK);
-    }
-
-    private ResponseEntity BadRequestFor(Integer id) {
-        var jo = new JSONObject();
-        jo.put("status", "400 Bad Request");
-        jo.put("message", "The item with id \"" + id + "\" doesn't exist");
-        return new ResponseEntity<>(jo.toString(), HttpStatus.BAD_REQUEST);
+        return ResponseEntity.ok(jo.toString());
     }
 }
