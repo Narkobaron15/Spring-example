@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="">
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Refactored code">
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/categories.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/categories.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/cucore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/cucore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/read/category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/read/category.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/update/updatecategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/update/updatecategory.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/models/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/models/category.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryCreateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +35,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -108,7 +121,9 @@
       <workItem from="1693404821411" duration="2768000" />
       <workItem from="1693427569566" duration="696000" />
       <workItem from="1693429974736" duration="412000" />
-      <workItem from="1693471095228" duration="3686000" />
+      <workItem from="1693471095228" duration="8542000" />
+      <workItem from="1693557937181" duration="2959000" />
+      <workItem from="1693563096544" duration="5815000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />
@@ -166,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693430382525</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Refactored code">
+      <option name="closed" value="true" />
+      <created>1693481900695</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1693481900695</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +213,7 @@
     <MESSAGE value="Added prefix to the CategoryController" />
     <MESSAGE value="Added error handling" />
     <MESSAGE value="Improved code nesting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved code nesting" />
+    <MESSAGE value="Refactored code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored code" />
   </component>
 </project>

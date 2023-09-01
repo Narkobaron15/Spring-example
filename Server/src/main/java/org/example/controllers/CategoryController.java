@@ -11,13 +11,13 @@ import org.json.JSONObject;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 /**
- * <b>Custom controller</b> <p>
- * Add correct mappings, don't respond with jsons or db entities
+ * <h1>Custom controller</h1>
+ * <hr>
+ * <p>Add correct mappings, don't respond with jsons or db entities
  */
 
 @RestController
@@ -33,13 +33,11 @@ public class CategoryController {
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE
     )
     public ResponseEntity<CategoryItemDTO> create(
-            @Valid @ModelAttribute CategoryCreateDTO createDTO/*,
-            MultipartFile file*/
+            @Valid @ModelAttribute CategoryCreateDTO createDTO
     ) {
-//        System.out.println(file.toString());
-
         CategoryEntity newEntity = mapper.createDTOToEntity(createDTO);
         catRepo.save(newEntity);
+
         CategoryItemDTO itemDTO = mapper.entityToItemDTO(newEntity);
         return ResponseEntity.ok(itemDTO);
     }

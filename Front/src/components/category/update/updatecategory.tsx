@@ -3,10 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
-import { CategoryCreateItem, catCreateSchema, CategoryItem, catInitVals } from '../../../models/category';
+import { CategoryItem, catInitVals } from '../../../models/category';
 import api_common from '../../../requests';
 import '../categories.css'
 import CUcore from '../cucore';
+import { CategoryCreateItem, catUpdateSchema } from '../../../validations/categoryValidation';
 
 export default function EditCategory() {
     const navigate = useNavigate();
@@ -45,7 +46,8 @@ export default function EditCategory() {
             <h1 className='form-header'>Edit category {category.name}</h1>
             <CUcore
                 initialValues={category}
-                validationSchema={catCreateSchema}
+                initialImgUrl={category.imageURL}
+                validationSchema={catUpdateSchema}
                 submit={onSubmit}
                 requestSent={requestSent}
                 update={true} />

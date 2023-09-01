@@ -1,10 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
-import { CategoryCreateItem, catCreateInitVals, catCreateSchema } from '../../../models/category';
 import api_common from '../../../requests';
+import { CategoryCreateItem, catCreateInitVals, catCreateSchema } from '../../../validations/categoryValidation';
 import '../categories.css'
 import CUcore from '../cucore';
 
