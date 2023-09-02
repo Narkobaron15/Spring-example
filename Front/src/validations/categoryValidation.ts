@@ -17,20 +17,12 @@ const imgValidation = mixed()
 
 export const catCreateSchema = object({
     name: string()
-        .required('Name is required')
+        .required(ERROR_MESSAGES.REQUIRED)
         .min(5, 'Name should be at least 5 characters long'),
-    // imageURL: string().required('Image URL is required'),
     image: imgValidation
-        .required(ERROR_MESSAGES.REQUIRED),
+        .required(ERROR_MESSAGES.IMG_REQUIRED),
     description: string()
-        .required('Description is required')
+        .required(ERROR_MESSAGES.REQUIRED)
         .min(10, 'Description should be at least 10 characters long'),
 });
 export const catUpdateSchema = catCreateSchema.shape({ image: imgValidation.nullable() });
-
-export type CategoryCreateItem = InferType<typeof catUpdateSchema>;
-export const catCreateInitVals: CategoryCreateItem = {
-    name: '',
-    image: null,
-    description: '',
-};

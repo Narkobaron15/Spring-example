@@ -4,20 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Refactored code">
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Front/src/models/image.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/WebResourcesConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryUpdateDTO.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/ImageDTO.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageProperties.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/exceptions/StorageException.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/ImageUtils.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/1200_9192e9ef-c85b-4c5c-a21f-792c5d3d4aaa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/1200_a20ab088-c36e-4ce7-ad79-be7d99c7254f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/150_9192e9ef-c85b-4c5c-a21f-792c5d3d4aaa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/150_a20ab088-c36e-4ce7-ad79-be7d99c7254f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/300_9192e9ef-c85b-4c5c-a21f-792c5d3d4aaa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/300_a20ab088-c36e-4ce7-ad79-be7d99c7254f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/32_9192e9ef-c85b-4c5c-a21f-792c5d3d4aaa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/32_a20ab088-c36e-4ce7-ad79-be7d99c7254f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/600_9192e9ef-c85b-4c5c-a21f-792c5d3d4aaa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/600_a20ab088-c36e-4ce7-ad79-be7d99c7254f.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/src/components/category/categories.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/categories.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/cucore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/cucore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/cucore.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/src/components/category/read/category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/read/category.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/read/categorylist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/read/categorylist.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/src/components/category/update/updatecategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/update/updatecategory.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/src/models/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/models/category.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/validations/categoryValidation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/validations/categoryValidation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryCreateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryItemDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +55,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -41,6 +68,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -55,6 +85,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -73,9 +104,15 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;7eb895d24e5ba49e43771896fde572d8&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\oleks\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="org.example.storage" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="_2.WebApp" />
@@ -123,7 +160,8 @@
       <workItem from="1693429974736" duration="412000" />
       <workItem from="1693471095228" duration="8542000" />
       <workItem from="1693557937181" duration="2959000" />
-      <workItem from="1693563096544" duration="5815000" />
+      <workItem from="1693563096544" duration="8914000" />
+      <workItem from="1693634873208" duration="12909000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />
@@ -189,7 +227,23 @@
       <option name="project" value="LOCAL" />
       <updated>1693481900695</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added a dropzone component&#10;and  a file input on CUCore&#10;Removed unused methods on CategoryMapper">
+      <option name="closed" value="true" />
+      <created>1693582468491</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1693582468492</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added a dropzone component">
+      <option name="closed" value="true" />
+      <created>1693582494583</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1693582494583</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +268,23 @@
     <MESSAGE value="Added error handling" />
     <MESSAGE value="Improved code nesting" />
     <MESSAGE value="Refactored code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored code" />
+    <MESSAGE value="Added a dropzone component&#10;and  a file input on CUCore&#10;Removed unused methods on CategoryMapper" />
+    <MESSAGE value="Added a dropzone component" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a dropzone component" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>15</line>
+          <properties class="org.example.Main" method="init">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

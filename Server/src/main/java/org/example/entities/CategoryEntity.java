@@ -11,7 +11,7 @@ public class CategoryEntity {
     @Column(name = "name", length = 200, nullable = false, unique = true)
     private String name;
     @Column(name = "image_path", length = 400, nullable = false)
-    private String imageURL;
+    private String image;
     @Column(name = "description", length = 1000, nullable = false)
     private String description;
 

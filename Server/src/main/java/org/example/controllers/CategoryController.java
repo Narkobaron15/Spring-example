@@ -4,9 +4,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.CategoryCreateDTO;
 import org.example.dto.CategoryItemDTO;
+import org.example.dto.CategoryUpdateDTO;
 import org.example.entities.CategoryEntity;
 import org.example.mappers.CategoryMapper;
 import org.example.repositories.CategoryRepo;
+import org.example.storage.StorageService;
 import org.json.JSONObject;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,7 @@ import java.util.List;
 public class CategoryController {
     private final CategoryRepo catRepo;
     private final CategoryMapper mapper;
+    private final StorageService storage;
 
     // Create
     @PostMapping(
@@ -35,10 +38,13 @@ public class CategoryController {
     public ResponseEntity<CategoryItemDTO> create(
             @Valid @ModelAttribute CategoryCreateDTO createDTO
     ) {
-        CategoryEntity newEntity = mapper.createDTOToEntity(createDTO);
-        catRepo.save(newEntity);
+        String filename = storage.store(createDTO.getImage());
 
-        CategoryItemDTO itemDTO = mapper.entityToItemDTO(newEntity);
+        CategoryEntity entity = mapper.createDTOToEntity(createDTO);
+        entity.setImage(filename);
+        catRepo.save(entity);
+
+        CategoryItemDTO itemDTO = mapper.entityToItemDTO(entity);
         return ResponseEntity.ok(itemDTO);
     }
 
@@ -72,17 +78,28 @@ public class CategoryController {
     )
     public ResponseEntity<CategoryItemDTO> update(
             @PathVariable Integer id,
-            @Valid @ModelAttribute CategoryCreateDTO dto
+            @Valid @ModelAttribute CategoryUpdateDTO dto
     ) {
-        if (!catRepo.existsById(id)) {
+        var probableOldEntity = catRepo.findById(id);
+        if (probableOldEntity.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 
-        CategoryEntity category = mapper.createDTOToEntity(dto);
-        category.setId(id);
-        catRepo.save(category);
+        CategoryEntity entity = mapper.updateDTOToEntity(dto);
+        entity.setId(id);
 
-        CategoryItemDTO updatedCatDTO = mapper.entityToItemDTO(category);
+        String currentImg = probableOldEntity.get().getImage();
+        if (dto.getImage() == null) {
+            entity.setImage(currentImg);
+        } else {
+            storage.delete(currentImg);
+            String newImg = storage.store(dto.getImage());
+            entity.setImage(newImg);
+        }
+
+        catRepo.save(entity);
+
+        CategoryItemDTO updatedCatDTO = mapper.entityToItemDTO(entity);
         return ResponseEntity.ok(updatedCatDTO);
     }
 
@@ -92,10 +109,12 @@ public class CategoryController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<String> delete(@PathVariable Integer id) {
-        if (!catRepo.existsById(id)) {
+        var probableOldEntity = catRepo.findById(id);
+        if (probableOldEntity.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 
+        storage.delete(probableOldEntity.get().getImage());
         catRepo.deleteById(id);
 
         var jo = new JSONObject();

@@ -42,8 +42,8 @@ export default function CategoryComponent({ instance, removeCallback }: Category
 
     return (
         <>
-            <tr className="border-t">
-                <td><img src={instance.imageURL} alt={instance.name} /></td>
+            <tr className="border-t category-row">
+                <td><img src={instance.image.sm} alt={instance.name} /></td>
                 <th scope='row'>{instance.id}</th>
                 <td>{instance.name}</td>
                 <td>{instance.description}</td>

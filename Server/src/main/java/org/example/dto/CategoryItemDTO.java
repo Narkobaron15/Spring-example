@@ -6,6 +6,6 @@ import lombok.Data;
 public class CategoryItemDTO {
     private int id;
     private String name;
-    private String imageURL;
+    private ImageDTO image;
     private String description;
 }
