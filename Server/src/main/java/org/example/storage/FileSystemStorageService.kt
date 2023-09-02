@@ -56,8 +56,7 @@ class FileSystemStorageService(props: StorageProperties) : StorageService {
             else -> "jpg"
         }
         val decoder: Base64.Decoder = Base64.getDecoder() //створюємо екземпляр декодера
-        var bytes: ByteArray? = ByteArray(0) // створюємо массив байтів
-        bytes = decoder.decode(charArray[1]) // декодуємо Base64 до вайтів
+        val bytes: ByteArray = decoder.decode(charArray[1])  // декодуємо Base64 до вайтів
         return store(bytes, extension)
     }
 
@@ -80,10 +79,10 @@ class FileSystemStorageService(props: StorageProperties) : StorageService {
         return store(file.bytes, extension)
     }
 
-    fun store(bytes: ByteArray, extension: String): String {
+    override fun store(bytes: ByteArray, extension: String): String {
         return try {
             val uuid: UUID = UUID.randomUUID()
-            val randomFileName: String = "$uuid.$extension" //робимо ім'я файліка: унікальне ім'я + розширення
+            val randomFileName = "$uuid.$extension" //робимо ім'я файліка: унікальне ім'я + розширення
             ByteArrayInputStream(bytes).use { byteStream ->
                 val image = ImageIO.read(byteStream)
                 for (size in imageSizes) { // в циклі створюємо фотки кожного розміру

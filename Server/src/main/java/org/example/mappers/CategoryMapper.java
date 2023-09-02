@@ -1,11 +1,9 @@
 package org.example.mappers;
 
-import jakarta.annotation.Nonnull;
 import org.example.dto.CategoryCreateDTO;
 import org.example.dto.CategoryItemDTO;
 import org.example.dto.CategoryUpdateDTO;
 import org.example.entities.CategoryEntity;
-import org.jetbrains.annotations.Contract;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

@@ -4,46 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Front/src/models/image.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/WebResourcesConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryUpdateDTO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/ImageDTO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageProperties.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/exceptions/StorageException.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/ImageUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/1200_9192e9ef-c85b-4c5c-a21f-792c5d3d4aaa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/1200_a20ab088-c36e-4ce7-ad79-be7d99c7254f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/150_9192e9ef-c85b-4c5c-a21f-792c5d3d4aaa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/150_a20ab088-c36e-4ce7-ad79-be7d99c7254f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/300_9192e9ef-c85b-4c5c-a21f-792c5d3d4aaa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/300_a20ab088-c36e-4ce7-ad79-be7d99c7254f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/32_9192e9ef-c85b-4c5c-a21f-792c5d3d4aaa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/32_a20ab088-c36e-4ce7-ad79-be7d99c7254f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/600_9192e9ef-c85b-4c5c-a21f-792c5d3d4aaa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/600_a20ab088-c36e-4ce7-ad79-be7d99c7254f.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/categories.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/categories.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/cucore.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/read/category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/read/category.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/read/categorylist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/read/categorylist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/update/updatecategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/update/updatecategory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/models/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/models/category.ts" afterDir="false" />
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Added a dropzone component">
       <change beforePath="$PROJECT_DIR$/../Front/src/validations/categoryValidation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/validations/categoryValidation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryCreateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/CategoryItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageService.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +127,9 @@
       <workItem from="1693471095228" duration="8542000" />
       <workItem from="1693557937181" duration="2959000" />
       <workItem from="1693563096544" duration="8914000" />
-      <workItem from="1693634873208" duration="12909000" />
+      <workItem from="1693634873208" duration="13333000" />
+      <workItem from="1693650151479" duration="66000" />
+      <workItem from="1693655317108" duration="128000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />

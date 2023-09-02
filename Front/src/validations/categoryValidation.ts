@@ -1,4 +1,4 @@
-import { object, InferType, string, mixed } from 'yup';
+import { object, string, mixed } from 'yup';
 import { ERROR_MESSAGES, MAX_FILE_SIZE, allowedPicTypes } from '../env/constants';
 
 // single-file picture validations
