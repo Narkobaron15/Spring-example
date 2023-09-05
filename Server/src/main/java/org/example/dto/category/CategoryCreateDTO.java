@@ -1,4 +1,4 @@
-package org.example.dto;
+package org.example.dto.category;
 
 import jakarta.annotation.Nonnull;
 import jakarta.validation.constraints.NotBlank;

@@ -2,9 +2,9 @@ package org.example.controllers;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.example.dto.CategoryCreateDTO;
-import org.example.dto.CategoryItemDTO;
-import org.example.dto.CategoryUpdateDTO;
+import org.example.dto.category.CategoryCreateDTO;
+import org.example.dto.category.CategoryItemDTO;
+import org.example.dto.category.CategoryUpdateDTO;
 import org.example.entities.CategoryEntity;
 import org.example.mappers.CategoryMapper;
 import org.example.repositories.CategoryRepo;
@@ -19,7 +19,8 @@ import java.util.List;
 /**
  * <h1>Custom controller</h1>
  * <hr>
- * <p>Add correct mappings, don't respond with jsons or db entities
+ * This controller is used to handle requests related
+ * to categories
  */
 
 @RestController

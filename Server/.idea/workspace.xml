@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Added a dropzone component">
-      <change beforePath="$PROJECT_DIR$/../Front/src/validations/categoryValidation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/validations/categoryValidation.ts" afterDir="false" />
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageService.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +65,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;7eb895d24e5ba49e43771896fde572d8&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\oleks\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -129,7 +126,11 @@
       <workItem from="1693563096544" duration="8914000" />
       <workItem from="1693634873208" duration="13333000" />
       <workItem from="1693650151479" duration="66000" />
-      <workItem from="1693655317108" duration="128000" />
+      <workItem from="1693655317108" duration="336000" />
+      <workItem from="1693735120447" duration="258000" />
+      <workItem from="1693746611567" duration="753000" />
+      <workItem from="1693856913045" duration="275000" />
+      <workItem from="1693933795523" duration="497000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />
@@ -211,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693582494583</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Small code improvements">
+      <option name="closed" value="true" />
+      <created>1693655616653</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1693655616653</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +247,8 @@
     <MESSAGE value="Refactored code" />
     <MESSAGE value="Added a dropzone component&#10;and  a file input on CUCore&#10;Removed unused methods on CategoryMapper" />
     <MESSAGE value="Added a dropzone component" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a dropzone component" />
+    <MESSAGE value="Small code improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small code improvements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

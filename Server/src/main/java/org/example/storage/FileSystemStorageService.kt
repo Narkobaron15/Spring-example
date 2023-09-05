@@ -21,7 +21,7 @@ class FileSystemStorageService(props: StorageProperties) : StorageService {
 
     companion object {
         @JvmStatic
-        val imageSizes = intArrayOf(32, 150, 300, 600, 1200) // масив розмірів фотографій
+        val imageSizes = intArrayOf(32, 150, 300, 600, 1200)
     }
 
     override fun init() {
