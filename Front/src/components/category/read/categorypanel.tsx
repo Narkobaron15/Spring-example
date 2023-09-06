@@ -6,7 +6,7 @@ import api_common from '../../../requests';
 import { CategoryItem } from '../../../models/category';
 import { Link } from 'react-router-dom';
 
-export default function CategoryList() {
+export default function CategoryPanel() {
   const [categories, setCategories] = React.useState<CategoryItem[]>([]);
 
   React.useEffect(() => {

@@ -13,7 +13,7 @@ import { catUpdateSchema } from '../../../validations/categoryValidation';
 import defaultPic from '../../../assets/upload.svg';
 import '../categories.css';
 
-export default function EditCategory() {
+export default function UpdateCategory() {
     const navigate = useNavigate();
     const { id } = useParams();
 

@@ -1,16 +1,16 @@
 import React from "react";
 
-import api_common from "../../../api_common";
-import { callErrorToast } from "../../errortoast";
 import { IProductReadModel } from "../../../models/product";
 import ProductCardComponent from "./productcard";
+import { toast } from "react-toastify";
+import api_common from "../../../requests";
 
-export default function CardsComponent() {
+export default function ProductCards() {
     const [products, setProducts] = React.useState<IProductReadModel[]>();
     React.useEffect(() => {
         api_common.get('/products')
         .then(r => setProducts(r.data))
-        .catch(callErrorToast);
+        .catch(e => toast.error(e.message));
     }, []);
 
     return products?.length === 0

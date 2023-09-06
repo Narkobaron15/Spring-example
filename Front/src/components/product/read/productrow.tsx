@@ -1,9 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import api_common from "../../../api_common";
 import { IProductReadModel } from "../../../models/product";
-import ShortenString from "../../../utilities/shortenstring";
-import PriceToString from "../../../utilities/pricetostr";
+import api_common from "../../../requests";
+import StringUtils from "../../utils/stringutils";
 
 type ProductArgs = {
     params: IProductReadModel,
@@ -23,11 +21,11 @@ export default function ProductRowComponent({ params, removeCallback }: ProductA
             </td>
             <td>
                 <Link to={`/products/details/${params.id}`} className="underline" >
-                    {ShortenString(params.name, MAX_TITLE_LENGTH)}
+                    {StringUtils.ShortenString(params.name, MAX_TITLE_LENGTH)}
                 </Link>
             </td>
-            <td>{ShortenString(params.description, MAX_DESCRIPTION_LENGTH)}</td>
-            <td>{PriceToString(params.price)}</td>
+            <td>{StringUtils.ShortenString(params.description, MAX_DESCRIPTION_LENGTH)}</td>
+            <td>{StringUtils.PriceToString(params.price)}</td>
             <td>{params.category_name}</td>
             <td>
                 {/* Edit button */}

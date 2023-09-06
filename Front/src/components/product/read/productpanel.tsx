@@ -1,15 +1,15 @@
 import React from "react";
-import api_common from "../../../api_common";
-import { callErrorToast } from "../../errortoast";
 import ProductRowComponent from "./productrow";
 import { IProductReadModel } from "../../../models/product";
+import { toast } from "react-toastify";
+import api_common from "../../../requests";
 
-export default function ProductList() {
+export default function ProductPanel() {
   const [products, setProducts] = React.useState<IProductReadModel[]>();
   React.useEffect(() => {
     api_common.get('/products')
       .then(r => setProducts(r.data))
-      .catch(callErrorToast);
+      .catch(e => toast.error(e.message));
   }, []);
 
   return products?.length === 0

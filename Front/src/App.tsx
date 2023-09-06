@@ -1,23 +1,29 @@
 import { Route, Routes } from 'react-router-dom'
 
-import CategoryList from './components/category/read/categorylist';
+import CategoryPanel from './components/category/read/categorypanel';
 import Layout from './components/layout/layout';
 import NotFound from './components/errors/notfound';
 import CreateCategory from './components/category/create/createcategory';
-import EditCategory from './components/category/update/updatecategory';
+import UpdateCategory from './components/category/update/updatecategory';
+import ProductCards from './components/product/read/productcards';
+import ProductPanel from './components/product/read/productpanel';
+import CreateProduct from './components/product/create/createproduct';
+import UpdateProduct from './components/product/update/updateproduct';
 
 export default function App() {
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
-        {/* <Route path='/products'>
-          <Route index element={}></Route>
-        </Route> */}
-        <Route index element={<CategoryList />}></Route>
+        <Route index element={<ProductCards />}></Route>
+        <Route path='/products'>
+          <Route index element={<ProductPanel />}></Route>
+          <Route path="create" element={<CreateProduct />} />
+          <Route path='update/:id' element={<UpdateProduct />} />
+        </Route>
         <Route path='/categories'>
-          <Route index element={<CategoryList />} />
+          <Route index element={<CategoryPanel />} />
           <Route path="create" element={<CreateCategory />} />
-          <Route path='update/:id' element={<EditCategory />} />
+          <Route path='update/:id' element={<UpdateCategory />} />
         </Route>
       </Route>
       <Route path='*' element={<NotFound />} />
