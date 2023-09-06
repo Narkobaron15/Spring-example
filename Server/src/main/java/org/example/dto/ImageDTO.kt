@@ -1,6 +1,6 @@
-package org.example.dto.category
+package org.example.dto
 
-class CategoryImageDTO {
+class ImageDTO {
     lateinit var xs: String
     lateinit var sm: String
     lateinit var md: String

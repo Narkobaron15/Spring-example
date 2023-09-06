@@ -19,8 +19,10 @@ import java.util.List;
 /**
  * <h1>Custom controller</h1>
  * <hr>
- * This controller is used to handle requests related
- * to categories
+ * <p>
+ *     This controller is used to handle
+ *     CRUD operations related to categories
+ * </p>
  */
 
 @RestController

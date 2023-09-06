@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="10" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="">
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Prepared project for adding products&#10;Moved categorydtos into separate package">
+      <change afterPath="$PROJECT_DIR$/../Front/src/components/common/file.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Front/src/components/product/create/createproduct.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Front/src/components/product/read/cards.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productcard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productdetails.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productlist.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productrow.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Front/src/components/product/update/updateproduct.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Front/src/models/product.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Front/src/validations/productValidation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.jpb/jpb-settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductCreateDTO.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductUpdateDTO.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductImageEntity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ImageMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/ProductRepo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/read/categorylist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/read/categorylist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/layout/default_navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/layout/default_navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/models/image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/models/image.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/OnlineStoreApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/category/CategoryImageDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/ImageDTO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/category/CategoryItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/category/CategoryItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductEntity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +52,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
+        <option value="com.haulmont.jpb.JpaEntity" />
         <option value="Kotlin Interface" />
+        <option value="Class" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -72,8 +108,14 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oleks\source\repos\Spring example\Server\src\main\java\org\example\dto\category" />
+    </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
       <recent name="org.example.storage" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="org.example.dto" />
     </key>
   </component>
   <component name="RunManager">
@@ -90,9 +132,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="OnlineStoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="spring-example" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.Main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.OnlineStoreApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -130,7 +172,9 @@
       <workItem from="1693735120447" duration="258000" />
       <workItem from="1693746611567" duration="753000" />
       <workItem from="1693856913045" duration="275000" />
-      <workItem from="1693933795523" duration="497000" />
+      <workItem from="1693933795523" duration="5385000" />
+      <workItem from="1694010832323" duration="1236000" />
+      <workItem from="1694012082381" duration="4700000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />
@@ -220,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693655616653</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Prepared project for adding products&#10;Moved categorydtos into separate package">
+      <option name="closed" value="true" />
+      <created>1693935673161</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1693935673161</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,21 +300,7 @@
     <MESSAGE value="Added a dropzone component&#10;and  a file input on CUCore&#10;Removed unused methods on CategoryMapper" />
     <MESSAGE value="Added a dropzone component" />
     <MESSAGE value="Small code improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small code improvements" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
-          <line>15</line>
-          <properties class="org.example.Main" method="init">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Prepared project for adding products&#10;Moved categorydtos into separate package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prepared project for adding products&#10;Moved categorydtos into separate package" />
   </component>
 </project>

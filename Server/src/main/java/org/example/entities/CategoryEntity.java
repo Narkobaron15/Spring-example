@@ -1,9 +1,18 @@
 package org.example.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data @Entity @Table(name = "tbl_categories")
+import java.util.List;
+
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@Entity @Table(name = "tbl_categories")
 public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,8 +24,9 @@ public class CategoryEntity {
     @Column(name = "description", length = 1000, nullable = false)
     private String description;
 
-    /* one-to-many relationship for products
+    // one-to-many relationship for products
     @OneToMany
+    @ToString.Exclude
+    @JoinColumn(name = "category_id")
     private List<ProductEntity> productEntities;
-    */
 }

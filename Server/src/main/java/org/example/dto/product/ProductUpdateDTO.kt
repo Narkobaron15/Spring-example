@@ -1,14 +1,13 @@
 package org.example.dto.product
 
-import org.example.dto.ImageDTO
 import org.example.entities.CategoryEntity
-import org.example.entities.ProductImageEntity
+import org.springframework.web.multipart.MultipartFile
 
-class ProductItemDTO {
-    var id: Long = 0
+class ProductUpdateDTO {
     lateinit var name: String
     var price = 0.0
     lateinit var description: String
-    lateinit var productImages: List<ImageDTO>
+    lateinit var oldProductImages: IntArray
+    lateinit var newProductImages: Array<MultipartFile>
     lateinit var category: CategoryEntity
 }

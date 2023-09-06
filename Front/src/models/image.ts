@@ -5,4 +5,3 @@ export default interface ImageDTO {
     get lg() : string;
     get xl() : string;
 }
-

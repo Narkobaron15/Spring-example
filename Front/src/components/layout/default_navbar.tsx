@@ -1,29 +1,29 @@
 import './default_navbar.css';
 import menusvg from '../../assets/menu.svg';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function DefaultNavbar() {
     return (
         <header>
             <nav>
-                <a href="/" className="logo">
+                <Link to="/" className="logo">
                     <img src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" />
                     <span>Store</span>
-                </a>
+                </Link>
                 <button data-collapse-toggle="navbar-default" type="button" className="menu-btn" aria-controls="navbar-default" aria-expanded="false">
                     <span className="sr-only">Open main menu</span>
-                    <img src={menusvg} alt="" />
+                    <img src={menusvg} alt="Menu logo" />
                 </button>
                 <div className="menu hidden" id="navbar-default">
                     <ul className="menu">
                         <li>
-                            <a href="/" className="current" aria-current="page">Home</a>
+                            <Link to="/" className="current" aria-current="page">Home</Link>
                         </li>
                         <li>
-                            <a href="/create">Create a category</a>
+                            <Link to="/categories/create">Create a category</Link>
                         </li>
                         <li>
-                            <a href="#">About</a>
+                            <Link to="#">About</Link>
                         </li>
                     </ul>
                 </div>

@@ -23,7 +23,7 @@ export default function CategoryList() {
           <div className='mt-10'>
             <p className="text-center text-2xl">Nothing is here yet</p>
             <p className="text-center text-2xl">
-              <Link className='font-medium text-blue-600 dark:text-blue-500 hover:underline' to="/create">
+              <Link className='font-medium text-blue-600 dark:text-blue-500 hover:underline' to="/categories/create">
                 Create a new category
               </Link>
             </p>
