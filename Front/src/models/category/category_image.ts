@@ -1,4 +1,4 @@
-export default interface ImageDTO {
+export default interface CategoryImageDTO {
     get xs() : string;
     get sm() : string;
     get md() : string;

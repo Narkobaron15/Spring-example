@@ -1,11 +1,11 @@
 import { InferType } from "yup";
-import { catUpdateSchema } from "../validations/categoryValidation";
-import ImageDTO from "./image";
+import { catUpdateSchema } from "../../validations/categoryValidation";
+import CategoryImageDTO from "./category_image";
 
 export interface CategoryItem {
   get id(): number;
   get name(): string;
-  get image(): ImageDTO;
+  get image(): CategoryImageDTO;
   get description(): string;
 }
 

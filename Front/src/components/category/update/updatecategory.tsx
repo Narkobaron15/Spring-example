@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import api_common from '../../../requests';
 
-import { CategoryItem, CategoryUpdateItem, catInitVals } from '../../../models/category';
+import { CategoryItem, CategoryUpdateItem, catInitVals } from '../../../models/category/category';
 import { catUpdateSchema } from '../../../validations/categoryValidation';
 
 import defaultPic from '../../../assets/upload.svg';

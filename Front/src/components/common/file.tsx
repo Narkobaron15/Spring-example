@@ -1,12 +1,12 @@
 import { FormikErrors } from 'formik';
-import ImageDTO from '../../models/image';
-import { IProductCreateModel } from '../../models/product';
+import CategoryImageDTO from '../../models/category_image';
+import { IProductCreateModel } from '../../models/product/product';
 
 type FilesArgs = {
     files?: File[] | null | undefined,
     setFilesCallback?: (value: File[]) => Promise<void | FormikErrors<IProductCreateModel>>,
-    current_files?: ImageDTO[],
-    removeCurrentCallback?: (picture: ImageDTO) => void,
+    current_files?: CategoryImageDTO[],
+    removeCurrentCallback?: (picture: CategoryImageDTO) => void,
 }
 type FileArgs = {
     src: string,

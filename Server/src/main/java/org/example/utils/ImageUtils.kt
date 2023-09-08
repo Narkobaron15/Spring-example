@@ -159,14 +159,13 @@ object ImageUtils {
      * @return The converted image
      * @param type  int
      */
-    fun createHeadlessSmoothBufferedImage(source: BufferedImage, type: Int, width: Int, height: Int): BufferedImage {
-        var type = type
-        type = if (type == IMAGE_PNG && hasAlpha(source)) {
+    private fun createHeadlessSmoothBufferedImage(source: BufferedImage, type: Int, width: Int, height: Int): BufferedImage {
+        val imgType = if (type == IMAGE_PNG && hasAlpha(source)) {
             BufferedImage.TYPE_INT_ARGB
         } else {
             BufferedImage.TYPE_INT_RGB
         }
-        val dest = BufferedImage(width, height, type)
+        val dest = BufferedImage(width, height, imgType)
         var sourcex: Int
         var sourcey: Int
         val scalex = width.toDouble() / source.width

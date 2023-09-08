@@ -8,7 +8,7 @@ import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
 
-import { CategoryItem } from "../../../models/category";
+import { CategoryItem } from "../../../models/category/category";
 import api_common from "../../../requests";
 
 const Transition = React.forwardRef(function Transition(

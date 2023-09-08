@@ -9,7 +9,7 @@ import org.example.entities.CategoryEntity;
 import org.example.mappers.CategoryMapper;
 import org.example.repositories.CategoryRepo;
 import org.example.storage.StorageService;
-import org.json.JSONObject;
+import org.example.utils.JsonUtils;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -56,7 +56,7 @@ public class CategoryController {
     /// Read all
     @GetMapping(value = {"", "/"}) // add CategoryItem mapping
     public ResponseEntity<List<CategoryItemDTO>> index() {
-        List<CategoryItemDTO> dtoList = mapper.entitiesToItemDTOs(catRepo.findAll());
+        var dtoList = mapper.entitiesToItemDTOs(catRepo.findAll());
         return ResponseEntity.ok(dtoList);
     }
 
@@ -67,9 +67,9 @@ public class CategoryController {
     )
     public ResponseEntity<CategoryItemDTO> index(@PathVariable Integer id) {
         // optional (nullable) category entity
-        var cat = catRepo.findById(id);
+        var probableCat = catRepo.findById(id);
         // maps to ItemDTO or bad request
-        return cat.map(entity -> ResponseEntity.ok(mapper.entityToItemDTO(entity)))
+        return probableCat.map(entity -> ResponseEntity.ok(mapper.entityToItemDTO(entity)))
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
@@ -119,9 +119,6 @@ public class CategoryController {
 
         storage.delete(probableOldEntity.get().getImage());
         catRepo.deleteById(id);
-
-        var jo = new JSONObject();
-        jo.put("message", "Deleted successfully");
-        return ResponseEntity.ok(jo.toString());
+        return ResponseEntity.ok(JsonUtils.getSuccessDeleteJO().toString());
     }
 }

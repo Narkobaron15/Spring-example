@@ -1,5 +1,5 @@
-import { IProductReadModel } from "../../../models/product";
-import arrowimg from '../../../assets/arrow.svg'
+import { IProductReadModel } from "../../../models/product/product";
+import arrowimg from '../../../assets/upload.svg'
 import { Link } from "react-router-dom";
 import StringUtils from "../../utils/stringutils";
 
@@ -14,7 +14,7 @@ export default function ProductCardComponent({ product }: ProductCardArgs) {
 
     return (
         <div className="card">
-            <img className="primary-img" src={product.primary_image.lg} alt="" />
+            <img className="primary-img" src={product.primary_image.lg} alt={product.name} />
             <div className="p-5">
                 <h5>
                     <Link to={productLink}>

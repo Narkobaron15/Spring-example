@@ -1,14 +1,13 @@
 import React from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
-import { Field, Formik, FormikErrors, FormikTouched, Form } from "formik";
-
-import api_common from "../../../api_common";
-import { callErrorToast } from "../../errortoast";
-import { IProductUpdateModel, emptyProduct, productUpdateSchema } from "../../../models/product";
-import { ICategoryReadModel } from "../../../models/category";
-import { IApiImage } from "../../../models/common";
-import FilesComponent from "../../file";
+import { Field, Formik, FormikErrors, FormikTouched, Form, ErrorMessage } from "formik";
+import { IProductReadModel, IProductUpdateModel, emptyProduct } from "../../../models/product/product";
+import api_common from "../../../requests";
+import { productUpdateSchema } from "../../../validations/productValidation";
+import FilesComponent from "../../common/file";
+import { toast } from "react-toastify";
+import ProductImageDTO from "../../../models/product/product_image";
 
 const getErrorComponents = (
     errors: FormikErrors<IProductUpdateModel>,
@@ -27,14 +26,15 @@ export default function UpdateProduct() {
     const { id } = useParams();
 
     const [requestSent, setRequestSent] = React.useState<boolean>(false);
-    const [categories, setCategories] = React.useState<ICategoryReadModel[]>([]);
+    const [categories, setCategories] = React.useState<IProductReadModel[]>([]);
     const [currentProduct, setCurrentProduct] = React.useState<IProductUpdateModel>(emptyProduct);
-    const [current_images, setCurrentImages] = React.useState<IApiImage[]>([]);
+    const [current_images, setCurrentImages] = React.useState<ProductImageDTO[]>([]);
     const [remove_images, setRemoveImages] = React.useState<number[]>([]);
 
     React.useEffect(() => {
         const catchFn = (e: Error) => {
-            callErrorToast(e);
+            toast.error(e.message);
+            // some_logger.log_error(e.message + "\n" + e.stack)
             navigate(`/products`);
         };
 
@@ -59,19 +59,12 @@ export default function UpdateProduct() {
         // check if no inspector manipulations were performed
         // cast needed because of using the select html item
         if (categories.filter(c => c.id === Number(val.category_id)).length === 0) {
-            callErrorToast(new Error("Wrong category, please select from given options or refresh the page."));
+            toast.error("Wrong category, please select from given options or refresh the page.");
             return;
         }
 
-        const validatedVal: any = await productUpdateSchema.validate(val);
-
-        // php accepts multiple files if square brackets are used in the parameter name
-        validatedVal["images[]"] = validatedVal.images;
-        delete validatedVal.images;
-        validatedVal["remove_images[]"] = remove_images;
-
         // posting request to update the product
-        await api_common.post(`/products/edit/${id}`, validatedVal,
+        await api_common.post(`/products/edit/${id}`, val,
             { // http request params
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -79,7 +72,7 @@ export default function UpdateProduct() {
             })
             .then(() => navigate("/products"))
             .catch(e => {
-                callErrorToast(e);
+                toast.error(e);
                 setRequestSent(false);
             });
     }
@@ -98,7 +91,7 @@ export default function UpdateProduct() {
                  * catch formik state objects and hooks
                  */
             }
-            {({ values, errors, touched, setFieldValue }) => (
+            {({ values, setFieldValue }) => (
                 <Form className="mx-auto">
                     <div className="form-group justify-center">
                         <h1>{`Оновити продукт ${values.name}`}</h1>
@@ -111,13 +104,7 @@ export default function UpdateProduct() {
                             <Field id="name" name="name" type="text" placeholder="Введіть назву..." />
                         </div>
                     </div>
-                    {
-                        /* 
-                         * if any errors were registered,
-                         * the error message will be shown
-                         */
-                        getErrorComponents(errors, touched, "name")
-                    }
+                    <ErrorMessage name="name" component="div" className="error-message"/>
                     <div className="form-group">
                         <div className="md:w-2/12">
                             <label htmlFor="description">Ціна</label>
@@ -126,10 +113,10 @@ export default function UpdateProduct() {
                             <Field id="price" name="price" type="number" placeholder="Вкажіть ціну..." />
                         </div>
                     </div>
-                    {getErrorComponents(errors, touched, "price")}
+                    <ErrorMessage name="price" component="div" className="error-message"/>
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <label htmlFor="description">Категорія</label>
+                            <label htmlFor="category">Категорія</label>
                         </div>
                         <div className="md:w-10/12">
                             <Field id="category_id" name="category_id" as="select" placeholder="Введіть опис...">
@@ -137,7 +124,7 @@ export default function UpdateProduct() {
                             </Field>
                         </div>
                     </div>
-                    {getErrorComponents(errors, touched, "category_id")}
+                    <ErrorMessage name="category_id" component="div" className="error-message"/>
                     <div className="form-group">
                         <div className="md:w-2/12">
                             <label htmlFor="description">Опис</label>
@@ -146,7 +133,7 @@ export default function UpdateProduct() {
                             <Field id="description" name="description" type="text" as="textarea" placeholder="Введіть опис..." />
                         </div>
                     </div>
-                    {getErrorComponents(errors, touched, "description")}
+                    <ErrorMessage name="description" component="div" className="error-message"/>
                     <div className="form-group">
                         <div className="md:w-2/12">
                             <label htmlFor="images">Фото</label>
@@ -169,7 +156,7 @@ export default function UpdateProduct() {
                             </span>
                         </div>
                     </div>
-                    {getErrorComponents(errors, touched, "images")}
+                    <ErrorMessage name="images" component="div" className="error-message"/>
                     <FilesComponent files={values.images} current_files={current_images}
                         setFilesCallback={val => setFieldValue("images", val)}
                         removeCurrentCallback={pic => {

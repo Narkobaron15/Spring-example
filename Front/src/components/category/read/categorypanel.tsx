@@ -3,7 +3,7 @@ import '../categories.css';
 import CategoryComponent from './category';
 
 import api_common from '../../../requests';
-import { CategoryItem } from '../../../models/category';
+import { CategoryItem } from '../../../models/category/category';
 import { Link } from 'react-router-dom';
 
 export default function CategoryPanel() {

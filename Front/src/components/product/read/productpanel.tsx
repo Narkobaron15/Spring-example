@@ -1,6 +1,6 @@
 import React from "react";
 import ProductRowComponent from "./productrow";
-import { IProductReadModel } from "../../../models/product";
+import { IProductReadModel } from "../../../models/product/product";
 import { toast } from "react-toastify";
 import api_common from "../../../requests";
 

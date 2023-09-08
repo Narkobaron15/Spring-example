@@ -1,10 +1,10 @@
 import React from "react";
 
 import { useNavigate } from "react-router-dom";
-import { Field, Formik, FormikErrors, FormikTouched, Form } from "formik";
+import { Field, Formik, FormikErrors, FormikTouched, Form, ErrorMessage } from "formik";
 
-import { IProductCreateModel, emptyProduct } from "../../../models/product";
-import { CategoryItem } from "../../../models/category";
+import { IProductCreateModel, emptyProduct } from "../../../models/product/product";
+import { CategoryItem } from "../../../models/category/category";
 import api_common from "../../../requests";
 import { toast } from "react-toastify";
 import { productCreateSchema } from "../../../validations/productValidation";
@@ -48,16 +48,13 @@ export default function CreateProduct() {
     const formikSubmit = async (val: IProductCreateModel) => {
         setRequestSent(true);
 
-
         if (categories.filter(c => c.id === Number(val.category_id)).length === 0) {
             toast.error("Wrong category, please select from given options or refresh the page.");
             return;
         }
 
-        const validatedVal: any = await productCreateSchema.validate(val);
-
         // posting request to create the product onto creation path
-        await api_common.post("/products/create", validatedVal,
+        await api_common.post("/products/create", val,
             { // http request params
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -84,7 +81,7 @@ export default function CreateProduct() {
                  * catch formik state objects and hooks
                  */
             }
-            {({ values, errors, touched, setFieldValue }) => (
+            {({ values, setFieldValue }) => (
                 <Form className="mx-auto">
                     <div className="form-group justify-center">
                         <h1>Додати новий продукт</h1>
@@ -97,13 +94,7 @@ export default function CreateProduct() {
                             <Field id="name" name="name" type="text" placeholder="Введіть назву..." />
                         </div>
                     </div>
-                    {
-                        /* 
-                         * if any errors were registered,
-                         * the error message will be shown
-                         */
-                        getErrorComponents(errors, touched, "name")
-                    }
+                    <ErrorMessage name="name" component="div" className="error-message"/>
                     <div className="form-group">
                         <div className="md:w-2/12">
                             <label htmlFor="description">Ціна</label>
@@ -112,10 +103,10 @@ export default function CreateProduct() {
                             <Field id="price" name="price" type="number" placeholder="Вкажіть ціну..." />
                         </div>
                     </div>
-                    {getErrorComponents(errors, touched, "price")}
+                    <ErrorMessage name="price" component="div" className="error-message"/>
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <label htmlFor="description">Категорія</label>
+                            <label htmlFor="category_id">Категорія</label>
                         </div>
                         <div className="md:w-10/12">
                             <Field id="category_id" name="category_id" as="select" placeholder="Введіть опис...">
@@ -123,7 +114,7 @@ export default function CreateProduct() {
                             </Field>
                         </div>
                     </div>
-                    {getErrorComponents(errors, touched, "category_id")}
+                    <ErrorMessage name="category_id" component="div" className="error-message"/>
                     <div className="form-group">
                         <div className="md:w-2/12">
                             <label htmlFor="description">Опис</label>
@@ -132,7 +123,7 @@ export default function CreateProduct() {
                             <Field id="description" name="description" type="text" as="textarea" placeholder="Введіть опис..." />
                         </div>
                     </div>
-                    {getErrorComponents(errors, touched, "description")}
+                    <ErrorMessage name="description" component="div" className="error-message"/>
                     <div className="form-group">
                         <div className="md:w-2/12">
                             <label htmlFor="images">Фото</label>
@@ -155,7 +146,7 @@ export default function CreateProduct() {
                             </span>
                         </div>
                     </div>
-                    {getErrorComponents(errors, touched, "images")}
+                    <ErrorMessage name="images" component="div" className="error-message"/>
                     <div className="form-group justify-evenly flex-wrap">
                         <FilesComponent files={values.images}
                             setFilesCallback={val => setFieldValue("images", val)} />

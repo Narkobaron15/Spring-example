@@ -1,6 +1,6 @@
 package org.example.dto
 
-class ImageDTO {
+open class BaseImageDTO {
     lateinit var xs: String
     lateinit var sm: String
     lateinit var md: String

@@ -11,7 +11,7 @@ import { catCreateSchema } from '../../../validations/categoryValidation';
 
 import '../categories.css';
 import defaultPic from '../../../assets/upload.svg';
-import { CategoryCreateItem, catCreateInitVals } from '../../../models/category';
+import { CategoryCreateItem, catCreateInitVals } from '../../../models/category/category';
 
 export default function CreateCategory() {
     const navigate = useNavigate();

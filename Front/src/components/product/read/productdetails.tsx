@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
-import { IProductReadModel } from "../../../models/product";
+import { IProductReadModel } from "../../../models/product/product";
 import arrowimg from '../../../assets/arrow.svg'
 import { toast } from "react-toastify";
 import api_common from "../../../requests";

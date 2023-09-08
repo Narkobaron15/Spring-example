@@ -1,12 +1,10 @@
 package org.example;
 
-import org.example.repositories.CategoryRepo;
 import org.example.storage.StorageService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 public class OnlineStoreApplication {
@@ -16,12 +14,12 @@ public class OnlineStoreApplication {
 
     @Bean
     CommandLineRunner init(StorageService service) {
-        return (args -> {
+        return args -> {
             try {
                 service.init();
             } catch (Exception ex) {
                 System.out.println("[ERROR] " + ex.getMessage());
             }
-        });
+        };
     }
 }
