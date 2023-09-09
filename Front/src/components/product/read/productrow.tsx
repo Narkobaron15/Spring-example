@@ -26,7 +26,7 @@ export default function ProductRowComponent({ params, removeCallback }: ProductA
             </td>
             <td>{StringUtils.ShortenString(params.description, MAX_DESCRIPTION_LENGTH)}</td>
             <td>{StringUtils.PriceToString(params.price)}</td>
-            <td>{params.category_name}</td>
+            <td>{params.categoryName}</td>
             <td>
                 {/* Edit button */}
                 <Link to={`/products/edit/${params.id}`} className="tailwind-btn ml-1" >

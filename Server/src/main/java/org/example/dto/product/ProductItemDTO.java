@@ -13,4 +13,5 @@ public class ProductItemDTO {
     private String description;
     private List<ProductImageDTO> images;
     private int categoryId;
+    private String categoryName;
 }

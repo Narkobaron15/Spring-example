@@ -13,7 +13,7 @@ export class ProductReadModel {
         private _price: number,
         private _description: string,
         private _categoryId: number,
-        private _category_name: string,
+        private _categoryName: string,
         private _images: ProductImageDTO[]
     ) { }
 
@@ -37,16 +37,36 @@ export class ProductReadModel {
         return this._categoryId;
     }
 
-    get category_name(): string {
-        return this._category_name;
+    get categoryName(): string {
+        return this._categoryName;
     }
 
     get primary_image(): ProductImageDTO {
-        return this._images[0];
+        return this._images.find(img => img.priority === 0)!;
     }
 
     get images(): ProductImageDTO[] {
         return this._images;
+    }
+
+    static ofObject({
+        id,
+        name,
+        price,
+        description,
+        categoryId,
+        categoryName,
+        images,
+    }: ProductReadModel): ProductReadModel {
+        return new ProductReadModel(
+            id,
+            name,
+            price,
+            description,
+            categoryId,
+            categoryName,
+            images,
+        );
     }
 }
 

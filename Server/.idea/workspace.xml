@@ -7,30 +7,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Implemented WEBP image converting support&#10;Updated navbar&#10;Added 50MB file-size ceiling">
-      <change afterPath="$PROJECT_DIR$/../Front/src/components/product/product.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductImageMapper.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/ProductImageRepo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/common/dropzone/dropzone.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/common/dropzone/dropzone.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/common/dropzone/dropzone.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/common/dropzone/dropzone.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/common/file.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/common/file.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/create/createproduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/create/createproduct.tsx" afterDir="false" />
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Closes #1 and #2">
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/read/category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/read/category.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productcard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productcard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productcards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productcards.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productdetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productdetails.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productpanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productpanel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productrow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productrow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/update/updateproduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/update/updateproduct.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/src/models/product/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/models/product/product.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/validations/productValidation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/validations/productValidation.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductUpdateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductImageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductImageEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductImageMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductImageMapper.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +161,7 @@
       <workItem from="1694118074947" duration="240000" />
       <workItem from="1694158126088" duration="3570000" />
       <workItem from="1694169797357" duration="3635000" />
-      <workItem from="1694239474531" duration="14202000" />
+      <workItem from="1694239474531" duration="16868000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />
@@ -288,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694247354481</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Closes #1 and #2">
+      <option name="closed" value="true" />
+      <created>1694270683905</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1694270683905</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,6 +315,7 @@
     <MESSAGE value="Prepared project for adding products&#10;Moved categorydtos into separate package" />
     <MESSAGE value="Switched to java (fixed #1 this way)" />
     <MESSAGE value="Implemented WEBP image converting support&#10;Updated navbar&#10;Added 50MB file-size ceiling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented WEBP image converting support&#10;Updated navbar&#10;Added 50MB file-size ceiling" />
+    <MESSAGE value="Closes #1 and #2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Closes #1 and #2" />
   </component>
 </project>

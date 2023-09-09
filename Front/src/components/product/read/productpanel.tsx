@@ -9,11 +9,15 @@ export default function ProductPanel() {
   const [products, setProducts] = React.useState<ProductReadModel[]>([]);
   React.useEffect(() => {
     api_common.get('/products')
-      .then(r => setProducts(r.data))
+      .then(r => setProducts(
+        (r.data as Array<any>)
+          .map(x => ProductReadModel.ofObject(x))
+      ))
       .catch(e => toast.error(e.message));
   }, []);
 
-    return products.length === 0
+
+  return products.length === 0
     ? (
       <>
         <h1 className="text-4xl font-bold my-8 text-center">Products</h1>

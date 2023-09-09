@@ -21,7 +21,7 @@ export default function ProductCardComponent({ product }: ProductCardArgs) {
                     </Link>
                 </h5>
                 <p>
-                    {product.category_name} |
+                    {product.categoryName} |
                     {StringUtils.PriceToString(product.price)}
                 </p>
                 <Link to={productLink} className="tailwind-btn-dark">

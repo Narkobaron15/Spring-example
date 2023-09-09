@@ -28,12 +28,14 @@ public class ProductController {
     private final StorageService storage;
 
     private void SaveImages(ProductEntity product, MultipartFile[] files) {
+        int i = 0;
         for (MultipartFile file : files) {
             String path = storage.store(file);
             ProductImageEntity img = ProductImageEntity
                     .builder()
                     .filename(path)
                     .product(product)
+                    .priority(i++)
                     .build();
             imgRepo.save(img);
         }
@@ -54,7 +56,7 @@ public class ProductController {
     }
 
     // Retrieve all products
-    @GetMapping
+    @GetMapping(value = {"", "/"})
     public ResponseEntity<List<ProductItemDTO>> getAllProducts() {
         List<ProductEntity> products = productRepo.findAll();
         List<ProductItemDTO> dtos = productMapper.toDtoList(products);
@@ -74,7 +76,7 @@ public class ProductController {
     }
 
     // Update a product by ID
-    @PutMapping("/update/{productId}")
+    @PutMapping("/{productId}")
     public ResponseEntity<ProductItemDTO> updateProduct(
             @PathVariable Long productId, 
             @ModelAttribute ProductUpdateDTO dto

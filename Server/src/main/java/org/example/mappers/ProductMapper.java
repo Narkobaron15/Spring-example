@@ -16,7 +16,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-public interface ProductMapper {
+public interface ProductMapper extends ProductImageMapper {
     @Mapping(target = "category", source = "categoryId", qualifiedByName = "categoryIdToCategory")
     ProductEntity toProductEntity(ProductCreateDTO createDto);
 
@@ -24,6 +24,7 @@ public interface ProductMapper {
     ProductEntity toProductEntity(ProductUpdateDTO updateDto);
 
     @Mapping(target = "categoryId", source = "category.id")
+    @Mapping(target = "categoryName", source = "category.name")
     @Mapping(target = "images", source = "productImages")
     ProductItemDTO toDto(ProductEntity entity);
 
