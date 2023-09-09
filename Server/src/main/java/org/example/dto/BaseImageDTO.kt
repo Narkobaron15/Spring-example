@@ -1,12 +1,9 @@
-package org.example.dto;
+package org.example.dto
 
-import lombok.Data;
-
-@Data
-public class BaseImageDTO {
-    private String xs;
-    private String sm;
-    private String md;
-    private String lg;
-    private String xl;
+open class BaseImageDTO {
+    lateinit var xs: String
+    lateinit var sm: String
+    lateinit var md: String
+    lateinit var lg: String
+    lateinit var xl: String
 }

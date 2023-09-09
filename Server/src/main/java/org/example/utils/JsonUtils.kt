@@ -1,12 +1,12 @@
-package org.example.utils;
+package org.example.utils
 
-import org.json.JSONObject;
+import org.json.JSONObject
 
-public class JsonUtils {
-    public static final JSONObject successDeleteJO;
+object JsonUtils {
+    @JvmField
+    val successDeleteJO: JSONObject = JSONObject()
 
-    static {
-        successDeleteJO = new JSONObject();
-        successDeleteJO.put("message", "Deleted successfully");
+    init {
+        successDeleteJO.put("message", "Deleted successfully")
     }
 }
