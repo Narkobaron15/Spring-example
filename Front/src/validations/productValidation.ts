@@ -44,18 +44,18 @@ export const productCreateSchema = object({
     price: number()
         .min(0, ERROR_MESSAGES.LESS_THAN_ZERO)
         .required(ERROR_MESSAGES.REQUIRED),
-    category_id: number()
+    categoryId: number()
         .integer(ERROR_MESSAGES.INTEGER)
         .min(1, ERROR_MESSAGES.CATEGORY_NOT_FOUND)
         .required(ERROR_MESSAGES.REQUIRED),
     description: string()
         .max(4000, ERROR_MESSAGES.TOO_LARGE)
         .required(ERROR_MESSAGES.REQUIRED),
-    images: imgValidation/*.required(ERROR_MESSAGES.IMG_REQUIRED)*/
+    productImages: imgValidation/*.required(ERROR_MESSAGES.IMG_REQUIRED)*/
         .test("Required", ERROR_MESSAGES.IMG_REQUIRED, img_required),
 });
 // schema.shape is used to create a new schema based on the other one
 export const productUpdateSchema = productCreateSchema.shape({
-    images: imgValidation.nullable(),
-    remove_images: array().of(number().min(0).integer().required()).nullable(),
+    productImages: imgValidation.nullable(),
+    removeProductImages: array().of(number().min(0).integer().required()).nullable(),
 });

@@ -101,13 +101,6 @@ open class FileSystemStorageService(props: StorageProperties) : StorageService {
             val image = ImageIO.read(byteStream)
             for (size in imageSizes) {
                 val outputPath = rootLocation.toString() + "/" + size + "_" + randomFileName
-                //                BufferedImage newImgBuf = ImageUtils.resizeImage(image, extension.equals("jpg") ? ImageUtils.IMAGE_JPEG : ImageUtils.IMAGE_PNG, size, size);
-//                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//                ImageIO.write(newImgBuf, extension, byteArrayOutputStream);
-//                byte[] newBytes = byteArrayOutputStream.toByteArray();
-//                FileOutputStream out = new FileOutputStream(outputPath);
-//                out.write(newBytes);
-//                out.close();
                 Thumbnails.of(image)
                     .size(size, size)
                     .outputFormat(extension)

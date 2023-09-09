@@ -35,7 +35,7 @@ export default function CreateCategory() {
 
     return (
         <>
-            <h1 className='form-header'>Create Category Item</h1>
+            <h1 className='form-header'>Create a new category</h1>
 
             <Formik initialValues={catCreateInitVals} validationSchema={catCreateSchema} onSubmit={onSubmit} enableReinitialize>
                 {({ values, setFieldValue }) => (

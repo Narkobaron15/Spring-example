@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
-import { IProductReadModel } from "../../../models/product/product";
+import { ProductReadModel } from "../../../models/product/product";
 import arrowimg from '../../../assets/arrow.svg'
 import { toast } from "react-toastify";
 import api_common from "../../../requests";
@@ -13,7 +13,7 @@ import StringUtils from "../../utils/stringutils";
 export default function ProductDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [product, setProduct] = React.useState<IProductReadModel>();
+    const [product, setProduct] = React.useState<ProductReadModel>();
 
     React.useEffect(() => {
         api_common.get(`/products/${id}`)

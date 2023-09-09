@@ -11,6 +11,6 @@ public class ProductItemDTO {
     private String name;
     private double price;
     private String description;
-    private List<ProductImageDTO> productImages;
-    private CategoryEntity category;
+    private List<ProductImageDTO> images;
+    private int categoryId;
 }

@@ -7,23 +7,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Switched to java (fixed #1 this way)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/FileFormat.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageProperties.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/exceptions/StorageException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/read/categorypanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/read/categorypanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/layout/default_navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/layout/default_navbar.tsx" afterDir="false" />
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Implemented WEBP image converting support&#10;Updated navbar&#10;Added 50MB file-size ceiling">
+      <change afterPath="$PROJECT_DIR$/../Front/src/components/product/product.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductImageMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/ProductImageRepo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/common/dropzone/dropzone.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/common/dropzone/dropzone.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/common/dropzone/dropzone.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/common/dropzone/dropzone.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/common/file.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/common/file.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/create/createproduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/create/createproduct.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productcard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productcard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productcards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productcards.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productdetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productdetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productpanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productpanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productrow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productrow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/update/updateproduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/update/updateproduct.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/models/product/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/models/product/product.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/src/validations/productValidation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/validations/productValidation.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/FileFormat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageProperties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/exceptions/StorageException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductUpdateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductImageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductImageEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,11 +41,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
         <option value="Interface" />
         <option value="Class" />
         <option value="Enum" />
+        <option value="Kotlin Interface" />
       </list>
     </option>
   </component>
@@ -67,6 +74,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "OverrideImplement.generate.javadoc": "true",
@@ -166,7 +174,7 @@
       <workItem from="1694118074947" duration="240000" />
       <workItem from="1694158126088" duration="3570000" />
       <workItem from="1694169797357" duration="3635000" />
-      <workItem from="1694239474531" duration="6571000" />
+      <workItem from="1694239474531" duration="14202000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />
@@ -272,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694243485584</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Implemented WEBP image converting support&#10;Updated navbar&#10;Added 50MB file-size ceiling">
+      <option name="closed" value="true" />
+      <created>1694247354481</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694247354481</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +306,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added CategoryController" />
     <MESSAGE value="Added Spring JPA configs" />
     <MESSAGE value="Added Spring JPA configs&#10;Implemented CRUD&#10;Added DTOs and a category repository" />
@@ -302,6 +319,7 @@
     <MESSAGE value="Small code improvements" />
     <MESSAGE value="Prepared project for adding products&#10;Moved categorydtos into separate package" />
     <MESSAGE value="Switched to java (fixed #1 this way)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switched to java (fixed #1 this way)" />
+    <MESSAGE value="Implemented WEBP image converting support&#10;Updated navbar&#10;Added 50MB file-size ceiling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented WEBP image converting support&#10;Updated navbar&#10;Added 50MB file-size ceiling" />
   </component>
 </project>

@@ -9,7 +9,7 @@ public class ProductUpdateDTO {
     private String name;
     private double price;
     private String description;
-    private int[] oldProductImages;
+    private Long[] removeProductImages;
     private MultipartFile[] newProductImages;
-    private CategoryEntity category;
+    private int categoryId;
 }

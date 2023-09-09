@@ -1,12 +1,10 @@
-import { FormikErrors } from 'formik';
-import CategoryImageDTO from '../../models/category_image';
-import { IProductCreateModel } from '../../models/product/product';
+import ProductImageDTO from '../../models/product/product_image';
 
 type FilesArgs = {
     files?: File[] | null | undefined,
-    setFilesCallback?: (value: File[]) => Promise<void | FormikErrors<IProductCreateModel>>,
-    current_files?: CategoryImageDTO[],
-    removeCurrentCallback?: (picture: CategoryImageDTO) => void,
+    setFilesCallback?: (value: File[]) => void,
+    current_files?: ProductImageDTO[],
+    removeCurrentCallback?: (picture: any) => void,
 }
 type FileArgs = {
     src: string,
@@ -16,7 +14,7 @@ type FileArgs = {
 
 export default function FilesComponent({ files, setFilesCallback, current_files, removeCurrentCallback }: FilesArgs) {
     return (
-        <div className="form-group justify-evenly flex-wrap">
+        <div className="form-group justify-center flex-wrap">
             {current_files?.map((file, i) => (
                 <FileComponent key={i}
                     src={file.xs}

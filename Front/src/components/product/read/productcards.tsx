@@ -1,13 +1,13 @@
 import React from "react";
 
-import { IProductReadModel } from "../../../models/product/product";
+import { ProductReadModel } from "../../../models/product/product";
 import ProductCardComponent from "./productcard";
 import { toast } from "react-toastify";
 import api_common from "../../../requests";
 import { Link } from "react-router-dom";
 
 export default function ProductCards() {
-  const [products, setProducts] = React.useState<IProductReadModel[]>();
+  const [products, setProducts] = React.useState<ProductReadModel[]>();
   React.useEffect(() => {
     api_common.get('/products')
       .then(r => setProducts(r.data))

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { IProductReadModel } from "../../../models/product/product";
+import { ProductReadModel } from "../../../models/product/product";
 import api_common from "../../../requests";
 import StringUtils from "../../utils/stringutils";
 
 type ProductArgs = {
-    params: IProductReadModel,
+    params: ProductReadModel,
     removeCallback: () => void,
 }
 

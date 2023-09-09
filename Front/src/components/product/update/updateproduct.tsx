@@ -1,22 +1,16 @@
 import React from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
-import { Field, Formik, FormikErrors, FormikTouched, Form, ErrorMessage } from "formik";
-import { IProductReadModel, IProductUpdateModel, emptyProduct } from "../../../models/product/product";
+import { Field, Formik, Form, ErrorMessage } from "formik";
+import { ProductReadModel, IProductUpdateModel, emptyProduct } from "../../../models/product/product";
 import api_common from "../../../requests";
 import { productUpdateSchema } from "../../../validations/productValidation";
 import FilesComponent from "../../common/file";
 import { toast } from "react-toastify";
 import ProductImageDTO from "../../../models/product/product_image";
 
-const getErrorComponents = (
-    errors: FormikErrors<IProductUpdateModel>,
-    touched: FormikTouched<IProductUpdateModel>,
-    field: keyof IProductUpdateModel) => {
-    return errors[field] && (field === "images" || touched[field])
-        ? <div className="error-text">{errors[field]}</div>
-        : null;
-};
+import '../product.css';
+import Dropzone from "../../common/dropzone/dropzone";
 
 export default function UpdateProduct() {
     // used for redirecting after successful form submit
@@ -26,7 +20,7 @@ export default function UpdateProduct() {
     const { id } = useParams();
 
     const [requestSent, setRequestSent] = React.useState<boolean>(false);
-    const [categories, setCategories] = React.useState<IProductReadModel[]>([]);
+    const [categories, setCategories] = React.useState<ProductReadModel[]>([]);
     const [currentProduct, setCurrentProduct] = React.useState<IProductUpdateModel>(emptyProduct);
     const [current_images, setCurrentImages] = React.useState<ProductImageDTO[]>([]);
     const [remove_images, setRemoveImages] = React.useState<number[]>([]);
@@ -58,7 +52,7 @@ export default function UpdateProduct() {
 
         // check if no inspector manipulations were performed
         // cast needed because of using the select html item
-        if (categories.filter(c => c.id === Number(val.category_id)).length === 0) {
+        if (categories.filter(c => c.id === Number(val.categoryId)).length === 0) {
             toast.error("Wrong category, please select from given options or refresh the page.");
             return;
         }
@@ -94,73 +88,73 @@ export default function UpdateProduct() {
             {({ values, setFieldValue }) => (
                 <Form className="mx-auto">
                     <div className="form-group justify-center">
-                        <h1>{`Оновити продукт ${values.name}`}</h1>
+                        <h1>{`Update product ${values.name}`}</h1>
                     </div>
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <label htmlFor="name">Назва</label>
+                            <label htmlFor="name">Name</label>
                         </div>
                         <div className="md:w-10/12">
                             <Field id="name" name="name" type="text" placeholder="Введіть назву..." />
                         </div>
                     </div>
-                    <ErrorMessage name="name" component="div" className="error-message"/>
+                    <ErrorMessage name="name" component="div" className="error-message" />
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <label htmlFor="description">Ціна</label>
+                            <label htmlFor="description">Price</label>
                         </div>
                         <div className="md:w-10/12">
                             <Field id="price" name="price" type="number" placeholder="Вкажіть ціну..." />
                         </div>
                     </div>
-                    <ErrorMessage name="price" component="div" className="error-message"/>
+                    <ErrorMessage name="price" component="div" className="error-message" />
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <label htmlFor="category">Категорія</label>
+                            <label htmlFor="category">Category</label>
                         </div>
                         <div className="md:w-10/12">
-                            <Field id="category_id" name="category_id" as="select" placeholder="Введіть опис...">
+                            <Field id="categoryId" name="categoryId" as="select" placeholder="Введіть опис...">
                                 {categories.map((cat, i) => <option key={i} value={cat.id}>{cat.name}</option>)}
                             </Field>
                         </div>
                     </div>
-                    <ErrorMessage name="category_id" component="div" className="error-message"/>
+                    <ErrorMessage name="categoryId" component="div" className="error-message" />
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <label htmlFor="description">Опис</label>
+                            <label htmlFor="description">Description</label>
                         </div>
                         <div className="md:w-10/12">
                             <Field id="description" name="description" type="text" as="textarea" placeholder="Введіть опис..." />
                         </div>
                     </div>
-                    <ErrorMessage name="description" component="div" className="error-message"/>
+                    <ErrorMessage name="description" component="div" className="error-message" />
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <label htmlFor="images">Фото</label>
+                            <label htmlFor="images">Pictures</label>
                         </div>
                         <div className="md:w-10/12 flex p-0 bg-gray-200">
                             <div className="inline overflow-hidden w-32">
-                                <input type="file" id="images" name="images" multiple onChange={e => {
+                                <Dropzone id="images" name="productImages" multiple={true} fileOnChange={e => {
                                     // file extracting
                                     const files = e.target.files;
                                     if (files) {
                                         setFieldValue(e.target.name, [
-                                            ...(values.images as Array<File> ?? []),
+                                            ...(values.productImages ?? []),
                                             ...files
                                         ]);
                                     }
                                 }} />
                             </div>
                             <span className="self-center">
-                                Вибрано файлів: {(values.images as Array<File> ?? []).length + current_images.length}
+                                Вибрано файлів: {(values.productImages ?? []).length + current_images.length}
                             </span>
                         </div>
                     </div>
-                    <ErrorMessage name="images" component="div" className="error-message"/>
-                    <FilesComponent files={values.images} current_files={current_images}
+                    <ErrorMessage name="productImages" component="div" className="error-message" />
+                    <FilesComponent files={values.productImages} current_files={current_images}
                         setFilesCallback={val => setFieldValue("images", val)}
                         removeCurrentCallback={pic => {
-                            setRemoveImages([...remove_images, pic.id]);
+                            setFieldValue("removeProductImages", [...values.removeProductImages ?? [], pic.id]);
                             setCurrentImages(current_images.filter(v => v.id !== pic.id));
                         }} />
                     <div className="flex justify-center">

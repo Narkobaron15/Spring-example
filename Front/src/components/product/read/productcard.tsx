@@ -1,20 +1,19 @@
-import { IProductReadModel } from "../../../models/product/product";
+import { ProductReadModel } from "../../../models/product/product";
 import arrowimg from '../../../assets/upload.svg'
 import { Link } from "react-router-dom";
 import StringUtils from "../../utils/stringutils";
 
 type ProductCardArgs = {
-    product: IProductReadModel,
+    product: ProductReadModel,
 };
 
 const MAX_HEADER_LENGTH = 45;
 
 export default function ProductCardComponent({ product }: ProductCardArgs) {
     const productLink = `/products/details/${product.id}`;
-
     return (
         <div className="card">
-            <img className="primary-img" src={product.primary_image.lg} alt={product.name} />
+            {/* <img className="primary-img" src={product.primary_image.lg} alt={product.name} /> */}
             <div className="p-5">
                 <h5>
                     <Link to={productLink}>
