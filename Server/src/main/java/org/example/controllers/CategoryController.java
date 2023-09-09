@@ -119,6 +119,6 @@ public class CategoryController {
 
         storage.delete(probableOldEntity.get().getImage());
         catRepo.deleteById(id);
-        return ResponseEntity.ok(JsonUtils.getSuccessDeleteJO().toString());
+        return ResponseEntity.ok(JsonUtils.successDeleteJO.toString());
     }
 }

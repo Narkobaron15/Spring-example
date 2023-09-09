@@ -7,42 +7,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Prepared project for adding products&#10;Moved categorydtos into separate package">
-      <change afterPath="$PROJECT_DIR$/../Front/src/models/product/product_image.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/category/CategoryImageDTO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductImageDTO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/JsonUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/read/category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/read/category.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/read/categorypanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/read/categorypanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/update/updatecategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/update/updatecategory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/common/file.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/common/file.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/create/createproduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/create/createproduct.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productcard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productcard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productcards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productcards.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productdetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productdetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productpanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productpanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/read/productrow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/read/productrow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/update/updateproduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/update/updateproduct.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/models/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/models/category/category.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/models/image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/models/category/category_image.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/models/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/models/product/product.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/BaseImageDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/category/CategoryImageDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/category/CategoryUpdateDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductCreateDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductImageDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductUpdateDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductImageEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ImageMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/ProductRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/storage/exceptions/StorageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/ImageUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/JsonUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OnlineStoreApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/OnlineStoreApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/ImageDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/BaseImageDTO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/category/CategoryItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/category/CategoryItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductEntity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/BaseImageDTO.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/category/CategoryImageDTO.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/category/CategoryUpdateDTO.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductCreateDTO.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductImageDTO.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductUpdateDTO.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductEntity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductImageEntity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/ImageMapper.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductMapper.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repositories/ProductRepo.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/FileSystemStorageService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageProperties.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/StorageService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/storage/exceptions/StorageException.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/ImageUtils.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +59,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="com.haulmont.jpb.JpaEntity" />
         <option value="Kotlin Interface" />
-        <option value="Class" />
         <option value="Kotlin Class" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -181,7 +188,8 @@
       <workItem from="1694029850263" duration="639000" />
       <workItem from="1694118074947" duration="240000" />
       <workItem from="1694158126088" duration="3570000" />
-      <workItem from="1694169797357" duration="3114000" />
+      <workItem from="1694169797357" duration="3635000" />
+      <workItem from="1694239474531" duration="3699000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />
@@ -309,20 +317,5 @@
     <MESSAGE value="Small code improvements" />
     <MESSAGE value="Prepared project for adding products&#10;Moved categorydtos into separate package" />
     <option name="LAST_COMMIT_MESSAGE" value="Prepared project for adding products&#10;Moved categorydtos into separate package" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/OnlineStoreApplication.java</url>
-          <line>10</line>
-          <properties class="org.example.OnlineStoreApplication" method="main">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

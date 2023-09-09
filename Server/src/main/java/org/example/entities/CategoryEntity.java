@@ -10,7 +10,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 @Entity @Table(name = "tbl_categories")
 public class CategoryEntity {
@@ -25,8 +24,6 @@ public class CategoryEntity {
     private String description;
 
     // one-to-many relationship for products
-    @OneToMany
-    @ToString.Exclude
-    @JoinColumn(name = "category_id")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<ProductEntity> productEntities;
 }
