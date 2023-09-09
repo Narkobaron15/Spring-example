@@ -1,11 +1,6 @@
-package org.example.storage.exceptions;
+package org.example.storage.exceptions
 
-public class StorageException extends RuntimeException {
-    public StorageException(String message) {
-        super(message);
-    }
-
-    public StorageException(String message, Throwable cause) {
-        super(message, cause);
-    }
+class StorageException : RuntimeException {
+    constructor(message: String?) : super(message)
+    constructor(message: String?, cause: Throwable?) : super(message, cause)
 }

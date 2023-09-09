@@ -1,6 +1,6 @@
-package org.example.storage;
+package org.example.storage
 
-public enum FileFormat {
+enum class FileFormat {
     WEBP,
-    JPG,
+    JPG
 }

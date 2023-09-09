@@ -20,6 +20,15 @@ export default function DefaultNavbar() {
                             <Link to="/" className="current" aria-current="page">Home</Link>
                         </li>
                         <li>
+                            <Link to="/products" aria-current="page">Products panel</Link>
+                        </li>
+                        <li>
+                            <Link to="/categories" aria-current="page">Categories panel</Link>
+                        </li>
+                        <li>
+                            <Link to="/products/create">Create a product</Link>
+                        </li>
+                        <li>
                             <Link to="/categories/create">Create a category</Link>
                         </li>
                         <li>

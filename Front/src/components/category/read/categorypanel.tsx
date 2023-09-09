@@ -17,12 +17,12 @@ export default function CategoryPanel() {
 
   return (
     <>
-      <h1 className="text-4xl font-bold mb-5 text-center">Categories</h1>
+      <h1 className="text-4xl font-bold my-8 text-center">Categories</h1>
       {categories.length === 0
         ? (
-          <div className='mt-10'>
-            <p className="text-center text-2xl">Nothing is here yet</p>
-            <p className="text-center text-2xl">
+          <div className='text-center'>
+            <p className="text-2xl">Nothing is here yet</p>
+            <p className="text-2xl">
               <Link className='font-medium text-blue-600 dark:text-blue-500 hover:underline' to="/categories/create">
                 Create a new category
               </Link>
