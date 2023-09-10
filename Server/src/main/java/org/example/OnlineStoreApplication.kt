@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 open class OnlineStoreApplication {
     @Bean
     open fun init(service: StorageService): CommandLineRunner {
-        return CommandLineRunner { args: Array<String> ->
+        return CommandLineRunner {
             try {
                 service.init()
             } catch (ex: Exception) {

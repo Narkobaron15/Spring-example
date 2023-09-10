@@ -7,9 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Fixed acceptable type of request on create and update (fixes swagger)">
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Fixed returned value on create/update operations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OnlineStoreApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/OnlineStoreApplication.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694347616778</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixed returned value on create/update operations">
+      <option name="closed" value="true" />
+      <created>1694348399250</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694348399250</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +334,7 @@
     <MESSAGE value="Closes #1 and #2" />
     <MESSAGE value="Converted some files into Kotlin" />
     <MESSAGE value="Fixed acceptable type of request on create and update (fixes swagger)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed acceptable type of request on create and update (fixes swagger)" />
+    <MESSAGE value="Fixed returned value on create/update operations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed returned value on create/update operations" />
   </component>
 </project>
