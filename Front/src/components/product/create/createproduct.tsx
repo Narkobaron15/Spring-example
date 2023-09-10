@@ -8,7 +8,7 @@ import { CategoryItem } from "../../../models/category/category";
 import api_common from "../../../requests";
 import { toast } from "react-toastify";
 import { productCreateSchema } from "../../../validations/productValidation";
-import FilesComponent from "../../common/file";
+import FilesComponent from "../../common/file/file";
 
 import '../product.css';
 import Dropzone from "../../common/dropzone/dropzone";
@@ -39,7 +39,7 @@ export default function CreateProduct() {
     }, [])
 
     // the logic of submit button on formik form
-    const formikSubmit = async (val: IProductCreateModel) => {
+    const formikSubmit = (val: IProductCreateModel) => {
         setRequestSent(true);
 
         if (categories.filter(c => c.id === Number(val.categoryId)).length === 0) {
@@ -48,7 +48,7 @@ export default function CreateProduct() {
         }
 
         // posting request to create the product onto creation path
-        await api_common.post("/products/create", val,
+        api_common.post("/products/create", val,
             { // http request params
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -61,24 +61,15 @@ export default function CreateProduct() {
             });
     }
 
-    // Formik component syntax
-    // https://formik.org/docs/guides/validation
     return (
         <Formik initialValues={emptyProduct}
             enableReinitialize
             validationSchema={productCreateSchema}
             onSubmit={formikSubmit}>
-            {
-                /*
-                 * can be either with or without this function
-                 * this arrow function wrapper is used to
-                 * catch formik state objects and hooks
-                 */
-            }
             {({ values, setFieldValue }) => (
-                <Form className="mx-auto">
+                <Form className="mx-auto product-form">
                     <div className="form-group justify-center">
-                        <h1>Create a new category</h1>
+                        <h1>Create a new product</h1>
                     </div>
                     <div className="form-group">
                         <div className="md:w-2/12">
@@ -91,7 +82,7 @@ export default function CreateProduct() {
                     <ErrorMessage name="name" component="div" className="error-message" />
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <label htmlFor="description">Price</label>
+                            <label htmlFor="price">Price</label>
                         </div>
                         <div className="md:w-10/12">
                             <Field id="price" name="price" type="number" placeholder="Вкажіть ціну..." />
@@ -135,9 +126,9 @@ export default function CreateProduct() {
                                     }
                                 }} />
                             </div>
-                            <span className="self-center px-4 py-2 bg-gray-200 rounded">
+                            <p className="files-counter">
                                 Вибрано файлів: {(values.productImages ?? []).length}
-                            </span>
+                            </p>
                         </div>
                     </div>
                     <ErrorMessage name="productImages" component="div" className="error-message" />

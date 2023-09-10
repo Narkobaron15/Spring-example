@@ -1,3 +1,11 @@
+.product-form {
+    @apply max-w-2xl
+}
+
+.files-counter {
+    @apply text-center px-4 py-2 bg-gray-200 rounded text-gray-500 font-bold;
+}
+
 .form-group {
     @apply md:flex md:items-center mb-6
 }
@@ -6,13 +14,12 @@
     @apply text-2xl font-semibold mb-4 text-center;
 }
 
-.form-group label,
-.form-group span {
+.form-group label {
     @apply block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4;
 }
 
 .form-group textarea {
-    @apply px-4 py-2 w-full border rounded border-gray-100;
+    @apply px-4 py-2 w-full border rounded border-gray-200 bg-gray-200;
 }
 
 .form-group select {
@@ -39,17 +46,6 @@
     @apply px-4 py-2 font-semibold text-sm bg-blue-400 hover:bg-blue-500 active:bg-blue-600 text-white rounded-full shadow-sm;
 } */
 
-.file {
-    @apply inline-flex px-4 border rounded border-gray-400 bg-gray-200;
-}
-.file:not(:last-child) {
-    @apply mb-5;
-}
-
-.file img {
-    @apply object-cover w-12 h-12;
-}
-
 /* .card {
     @apply w-full sm:w-5/12 md:mx-4 lg:w-3/12 lg:max-w-xs mb-8 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700;
 }
@@ -74,10 +70,10 @@
     @apply inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
 }
 
-/* .category-pic {
+.rounded-pic {
     @apply rounded-full w-16 h-16 object-cover;
-} */
+}
 
-.error-message {
-    @apply text-red-500 text-sm;
+.product-form .error-message {
+    @apply text-red-500 text-sm -mt-4 mb-4;
 }

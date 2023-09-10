@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -93,14 +92,19 @@ public class ProductController {
         }
 
         // deleting previous pics
-        imgRepo.deleteAllById(List.of(dto.getRemoveProductImages()));
+        Long[] picsToRemove = dto.getRemoveProductImages();
+        if (picsToRemove != null)
+            imgRepo.deleteAllById(List.of(picsToRemove));
 
         ProductEntity newProduct = mapper.toProductEntity(dto);
         newProduct.setId(productId);
 
         // adding new pics
-        SaveImages(newProduct, dto.getNewProductImages());
+        MultipartFile[] picsToAdd = dto.getNewProductImages();
+        if (picsToAdd != null)
+            SaveImages(newProduct, picsToAdd);
 
+        // saving a product
         newProduct = prodRepo.save(newProduct);
 
         ProductItemDTO updatedDTO = mapper.toDto(newProduct);

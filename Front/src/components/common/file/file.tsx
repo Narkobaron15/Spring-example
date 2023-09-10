@@ -1,4 +1,8 @@
-import ProductImageDTO from '../../models/product/product_image';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ProductImageDTO from '../../../models/product/product_image';
+
+import './file.css';
 
 type FilesArgs = {
     files?: File[] | null | undefined,
@@ -14,11 +18,11 @@ type FileArgs = {
 
 export default function FilesComponent({ files, setFilesCallback, current_files, removeCurrentCallback }: FilesArgs) {
     return (
-        <div className="form-group justify-center flex-wrap">
+        <div className="file-container form-group">
             {current_files?.map((file, i) => (
                 <FileComponent key={i}
-                    src={file.xs}
-                    name={`Already attached image(${i + 1})`}
+                    src={file.sm}
+                    name={`Image ${file.id}`}
                     delfunc={() => removeCurrentCallback?.call({}, file)} />
             ))}
             {[...files ?? []].map(file => (
@@ -34,10 +38,10 @@ export default function FilesComponent({ files, setFilesCallback, current_files,
 export function FileComponent({ src, name, delfunc }: FileArgs) {
     return (
         <div className='file'>
-            <img src={src} alt='' />
-            <span className="ml-5 self-center">{name}</span>
+            <img src={src} alt='Image thumbnail' />
+            <span>{name}</span>
             <button type='button' className="p-0 bg-transparent" onClick={delfunc}>
-                <i className="fa-solid fa-xmark"></i>
+                <FontAwesomeIcon icon={faXmark} />
             </button>
         </div>
     )

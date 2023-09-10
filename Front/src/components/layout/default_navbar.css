@@ -23,7 +23,7 @@ nav .menu-btn img {
 }
 
 nav div.menu {
-    @apply w-full md:block md:w-auto;
+    @apply w-full lg:block lg:w-auto;
 }
 
 nav ul.menu {

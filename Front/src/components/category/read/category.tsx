@@ -5,20 +5,11 @@ import { toast } from "react-toastify";
 import { Button } from "flowbite-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide } from "@mui/material";
-import { TransitionProps } from "@mui/material/transitions";
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 
 import { CategoryItem } from "../../../models/category/category";
 import api_common from "../../../requests";
-
-const Transition = React.forwardRef(function Transition(
-    props: TransitionProps & {
-        children: React.ReactElement<any, any>;
-    },
-    ref: React.Ref<unknown>,
-) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
+import { Transition } from '../../common/transition';
 
 type CategoryArgs = {
     instance: CategoryItem,
@@ -30,6 +21,7 @@ export default function CategoryComponent({ instance, removeCallback }: Category
 
     const handleOpen = () => setModalOpen(true);
     const handleClose = () => setModalOpen(false);
+
     const sendRequest = () => {
         api_common.delete('/categories/' + instance.id)
             .then(() => {
@@ -43,7 +35,7 @@ export default function CategoryComponent({ instance, removeCallback }: Category
     return (
         <>
             <tr className="border-t category-row">
-                <td><img src={instance.image.sm} alt={instance.name} /></td>
+                <td><img className='rounded-pic' src={instance.image.sm} alt={instance.name} /></td>
                 <th scope='row'>{instance.id}</th>
                 <td>{instance.name}</td>
                 <td>{instance.description}</td>

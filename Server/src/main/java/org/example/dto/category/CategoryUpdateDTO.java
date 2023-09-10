@@ -1,6 +1,7 @@
 package org.example.dto.category;
 
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,6 +15,6 @@ public class CategoryUpdateDTO {
     @NotBlank(message = "Опис є обов'язковим")
     private String description;
 
-    @Nonnull
+    @Nullable
     private MultipartFile image;
 }

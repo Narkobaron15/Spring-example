@@ -15,7 +15,7 @@
 }
 
 .dropzone .text-1 {
-    @apply mb-2 text-sm text-gray-500 dark:text-gray-400;
+    @apply mb-2 text-sm text-gray-500 dark:text-gray-400 font-normal;
 }
 
 .dropzone .text-2 {

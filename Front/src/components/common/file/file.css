@@ -1,0 +1,15 @@
+.file-container {
+    @apply flex justify-evenly flex-wrap;
+}
+
+.file {
+    @apply inline-flex px-3 border rounded border-gray-400 bg-gray-200 mb-5 mx-auto md:mx-0;
+}
+
+.file img {
+    @apply object-cover w-12 h-12 rounded-full;
+}
+
+.file span {
+    @apply mx-3 self-center;
+}

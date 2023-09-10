@@ -26,7 +26,7 @@ export default function CreateCategory() {
                     "Content-Type": "multipart/form-data",
                 },
             })
-            .then(() => navigate("/"))
+            .then(() => navigate("/categories"))
             .catch(err => {
                 setRequestSent(false);
                 toast.error(err.message);

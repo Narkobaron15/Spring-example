@@ -49,23 +49,15 @@ export class ProductReadModel {
         return this._images;
     }
 
-    static ofObject({
-        id,
-        name,
-        price,
-        description,
-        categoryId,
-        categoryName,
-        images,
-    }: ProductReadModel): ProductReadModel {
+    static ofObject(obj: ProductReadModel): ProductReadModel {
         return new ProductReadModel(
-            id,
-            name,
-            price,
-            description,
-            categoryId,
-            categoryName,
-            images,
+            obj.id,
+            obj.name,
+            obj.price,
+            obj.description,
+            obj.categoryId,
+            obj.categoryName,
+            obj.images,
         );
     }
 }

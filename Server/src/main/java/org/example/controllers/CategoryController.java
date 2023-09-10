@@ -69,8 +69,10 @@ public class CategoryController {
         // optional (nullable) category entity
         var probableCat = catRepo.findById(id);
         // maps to ItemDTO or bad request
-        return probableCat.map(entity -> ResponseEntity.ok(mapper.entityToItemDTO(entity)))
-                .orElseGet(() -> ResponseEntity.badRequest().build());
+        return probableCat.map(
+                entity ->
+                ResponseEntity.ok(mapper.entityToItemDTO(entity))
+        ).orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
     // Update

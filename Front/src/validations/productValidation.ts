@@ -34,8 +34,7 @@ const imgValidation = array()
     .test("fileType", ERROR_MESSAGES.NOT_A_PICTURE, picTest)
     .test("fileSize", ERROR_MESSAGES.FILE_TOO_LARGE, sizeTest);
 
-// validation schemas for product create / update operations
-export const productCreateSchema = object({
+const productSchema = object({
     id: number().nullable(),
     name: string()
         .min(5, ERROR_MESSAGES.TOO_SMALL)
@@ -51,11 +50,15 @@ export const productCreateSchema = object({
     description: string()
         .max(4000, ERROR_MESSAGES.TOO_LARGE)
         .required(ERROR_MESSAGES.REQUIRED),
-    productImages: imgValidation/*.required(ERROR_MESSAGES.IMG_REQUIRED)*/
-        .test("Required", ERROR_MESSAGES.IMG_REQUIRED, img_required),
 });
+
+// validation schemas for product create / update operations
+export const productCreateSchema = productSchema.shape({
+    productImages: imgValidation/*.required(ERROR_MESSAGES.IMG_REQUIRED)*/
+        .test("Required", ERROR_MESSAGES.IMG_REQUIRED, img_required)
+})
 // schema.shape is used to create a new schema based on the other one
-export const productUpdateSchema = productCreateSchema.shape({
-    productImages: imgValidation.nullable(),
+export const productUpdateSchema = productSchema.shape({
+    newProductImages: imgValidation.nullable(),
     removeProductImages: array().of(number().min(0).integer().required()).nullable(),
 });

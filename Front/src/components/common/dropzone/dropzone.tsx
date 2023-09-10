@@ -19,7 +19,7 @@ export default function Dropzone({ fileOnChange, id, name, multiple }: DropzoneA
                 <div>
                     <img src={uploadIcon} alt="Drag & drop icon" />
                     <p className="text-1">
-                        <span className="font-semibold">Click to upload</span>
+                        <span className="font-bold pr-1">Click to upload</span>
                         or drag and drop
                     </p>
                     <p className="text-2">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>

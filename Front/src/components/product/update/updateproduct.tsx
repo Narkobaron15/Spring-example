@@ -5,7 +5,7 @@ import { Field, Formik, Form, ErrorMessage } from "formik";
 import { ProductReadModel, IProductUpdateModel, emptyProduct } from "../../../models/product/product";
 import api_common from "../../../requests";
 import { productUpdateSchema } from "../../../validations/productValidation";
-import FilesComponent from "../../common/file";
+import FilesComponent from "../../common/file/file";
 import { toast } from "react-toastify";
 import ProductImageDTO from "../../../models/product/product_image";
 
@@ -23,7 +23,6 @@ export default function UpdateProduct() {
     const [categories, setCategories] = React.useState<ProductReadModel[]>([]);
     const [currentProduct, setCurrentProduct] = React.useState<IProductUpdateModel>(emptyProduct);
     const [current_images, setCurrentImages] = React.useState<ProductImageDTO[]>([]);
-    const [remove_images, setRemoveImages] = React.useState<number[]>([]);
 
     React.useEffect(() => {
         const catchFn = (e: Error) => {
@@ -39,7 +38,10 @@ export default function UpdateProduct() {
         api_common.get(`/products/${id}`)
             .then(r => {
                 setCurrentImages(r.data.images);
-                delete r.data.images; // so they won't be assigned to the input field
+
+                delete r.data.images; 
+                delete r.data.categoryName;
+
                 setCurrentProduct(r.data);
             })
             .catch(catchFn);
@@ -47,7 +49,9 @@ export default function UpdateProduct() {
     }, [navigate, id])
 
     // the logic of submit button on formik form
-    const formikSubmit = async (val: IProductUpdateModel) => {
+    const formikSubmit = (val: IProductUpdateModel) => {
+        console.warn('sent');
+
         setRequestSent(true);
 
         // check if no inspector manipulations were performed
@@ -58,7 +62,7 @@ export default function UpdateProduct() {
         }
 
         // posting request to update the product
-        await api_common.post(`/products/edit/${id}`, val,
+        api_common.put(`/products/${id}`, val,
             { // http request params
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -69,26 +73,22 @@ export default function UpdateProduct() {
                 toast.error(e);
                 setRequestSent(false);
             });
-    }
+    };
 
-    // Formik component syntax
-    // https://formik.org/docs/guides/validation
+    productUpdateSchema.validate(currentProduct)
+    .then(console.log)
+    .catch(console.log)
+    
+
     return (
         <Formik initialValues={currentProduct}
             enableReinitialize
             validationSchema={productUpdateSchema}
             onSubmit={formikSubmit}>
-            {
-                /*
-                 * can be either with or without this function
-                 * this arrow function wrapper is used to
-                 * catch formik state objects and hooks
-                 */
-            }
             {({ values, setFieldValue }) => (
-                <Form className="mx-auto">
+                <Form className="mx-auto product-form">
                     <div className="form-group justify-center">
-                        <h1>{`Update product ${values.name}`}</h1>
+                        <h1>{`Update product '${values.name}'`}</h1>
                     </div>
                     <div className="form-group">
                         <div className="md:w-2/12">
@@ -101,7 +101,7 @@ export default function UpdateProduct() {
                     <ErrorMessage name="name" component="div" className="error-message" />
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <label htmlFor="description">Price</label>
+                            <label htmlFor="price">Price</label>
                         </div>
                         <div className="md:w-10/12">
                             <Field id="price" name="price" type="number" placeholder="Вкажіть ціну..." />
@@ -110,7 +110,7 @@ export default function UpdateProduct() {
                     <ErrorMessage name="price" component="div" className="error-message" />
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <label htmlFor="category">Category</label>
+                            <label htmlFor="categoryId">Category</label>
                         </div>
                         <div className="md:w-10/12">
                             <Field id="categoryId" name="categoryId" as="select" placeholder="Введіть опис...">
@@ -130,28 +130,28 @@ export default function UpdateProduct() {
                     <ErrorMessage name="description" component="div" className="error-message" />
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <label htmlFor="images">Pictures</label>
+                            <span>Pictures</span>
                         </div>
-                        <div className="md:w-10/12 flex p-0 bg-gray-200">
+                        <div className="md:w-10/12 p-0">
                             <div className="inline overflow-hidden w-32">
-                                <Dropzone id="images" name="productImages" multiple={true} fileOnChange={e => {
+                                <Dropzone id="images" name="newProductImages" multiple={true} fileOnChange={e => {
                                     // file extracting
                                     const files = e.target.files;
                                     if (files) {
                                         setFieldValue(e.target.name, [
-                                            ...(values.productImages ?? []),
+                                            ...(values.newProductImages ?? []),
                                             ...files
                                         ]);
                                     }
                                 }} />
                             </div>
-                            <span className="self-center">
-                                Вибрано файлів: {(values.productImages ?? []).length + current_images.length}
-                            </span>
+                            <p className="files-counter">
+                                Вибрано файлів: {(values.newProductImages ?? []).length + current_images.length}
+                            </p>
                         </div>
                     </div>
-                    <ErrorMessage name="productImages" component="div" className="error-message" />
-                    <FilesComponent files={values.productImages} current_files={current_images}
+                    <ErrorMessage name="newProductImages" component="div" className="error-message" />
+                    <FilesComponent files={values.newProductImages} current_files={current_images}
                         setFilesCallback={val => setFieldValue("images", val)}
                         removeCurrentCallback={pic => {
                             setFieldValue("removeProductImages", [...values.removeProductImages ?? [], pic.id]);
