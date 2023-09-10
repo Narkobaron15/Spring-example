@@ -1,11 +1,17 @@
-'use client';
+import React from 'react';
 
 import './default_navbar.css';
 import menusvg from '../../assets/menu.svg';
-import { Link } from 'react-router-dom';
-import { Navbar } from 'flowbite-react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function DefaultNavbar() {
+    const location = useLocation();
+    const [url, setUrl] = React.useState("");
+
+    React.useEffect(() => {
+        setUrl(location.pathname);
+    }, [location]);
+
     return (
         <>
             <nav>
@@ -20,23 +26,32 @@ export default function DefaultNavbar() {
                 <div className="menu hidden" id="navbar-default">
                     <ul className="menu">
                         <li>
-                            <Link to="/" className="current" aria-current="page">Home</Link>
+                            <Link to="/" className={getLinkStatus("/", url)}>Home</Link>
                         </li>
                         <li>
-                            <Link to="/products" aria-current="page">Prods panel</Link>
+                            <Link to="/products" className={getLinkStatus("/products", url)}>Prods panel</Link>
                         </li>
                         <li>
-                            <Link to="/categories" aria-current="page">Cats panel</Link>
+                            <Link to="/categories" className={getLinkStatus("/categories", url)}>Cats panel</Link>
                         </li>
                         <li>
-                            <Link to="/products/create">Create a product</Link>
+                            <Link to="/products/create" className={getLinkStatus("/products/create", url)}>Create a product</Link>
                         </li>
                         <li>
-                            <Link to="/categories/create">Create a category</Link>
+                            <Link to="/categories/create" className={getLinkStatus("/categories/create", url)}>Create a category</Link>
                         </li>
                     </ul>
                 </div>
             </nav>
         </>
     );
+}
+
+function getLinkStatus(
+    location: string,
+    currentLocation: string,
+    currentStatus: string = "current",
+    defaultStatus: string = ""
+): string {
+    return location === currentLocation ? currentStatus : defaultStatus;
 }

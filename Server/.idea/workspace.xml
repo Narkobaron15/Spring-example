@@ -8,9 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Fixed a warning on unused lambda parameter&#10;#3 fix returned null values on images and category name (fetch issues on DAL)">
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/layout/default_navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/layout/default_navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/create/createproduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/create/createproduct.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/update/updateproduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/update/updateproduct.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,6 +154,8 @@
       <workItem from="1694169797357" duration="3635000" />
       <workItem from="1694239474531" duration="16868000" />
       <workItem from="1694373108608" duration="1420000" />
+      <workItem from="1694376022161" duration="609000" />
+      <workItem from="1694378797797" duration="339000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />
