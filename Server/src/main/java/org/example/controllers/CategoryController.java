@@ -45,7 +45,7 @@ public class CategoryController {
 
         CategoryEntity entity = mapper.createDTOToEntity(createDTO);
         entity.setImage(filename);
-        catRepo.save(entity);
+        entity = catRepo.save(entity);
 
         CategoryItemDTO itemDTO = mapper.entityToItemDTO(entity);
         return ResponseEntity.ok(itemDTO);
@@ -100,7 +100,7 @@ public class CategoryController {
             entity.setImage(newImg);
         }
 
-        catRepo.save(entity);
+        entity = catRepo.save(entity);
 
         CategoryItemDTO updatedCatDTO = mapper.entityToItemDTO(entity);
         return ResponseEntity.ok(updatedCatDTO);

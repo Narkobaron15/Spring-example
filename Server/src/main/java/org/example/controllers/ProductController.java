@@ -23,9 +23,9 @@ import java.util.Optional;
 @AllArgsConstructor
 @RequestMapping("${apiPrefix}/products")
 public class ProductController {
-    private final ProductRepo productRepo;
+    private final ProductRepo prodRepo;
     private final ProductImageRepo imgRepo;
-    private final ProductMapper productMapper;
+    private final ProductMapper mapper;
     private final StorageService storage;
 
     private void SaveImages(ProductEntity product, MultipartFile[] files) {
@@ -50,20 +50,20 @@ public class ProductController {
     public ResponseEntity<ProductItemDTO> createProduct(
             @ModelAttribute ProductCreateDTO createDTO
     ) {
-        ProductEntity entity = productMapper.toProductEntity(createDTO);
+        ProductEntity entity = mapper.toProductEntity(createDTO);
 
-        entity = productRepo.save(entity);
+        entity = prodRepo.save(entity);
         SaveImages(entity, createDTO.getProductImages());
 
-        ProductItemDTO itemDTO = productMapper.toDto(entity);
+        ProductItemDTO itemDTO = mapper.toDto(entity);
         return ResponseEntity.ok(itemDTO);
     }
 
     // Retrieve all products
     @GetMapping(value = {"", "/"})
     public ResponseEntity<List<ProductItemDTO>> getAllProducts() {
-        List<ProductEntity> products = productRepo.findAll();
-        List<ProductItemDTO> dtos = productMapper.toDtoList(products);
+        List<ProductEntity> products = prodRepo.findAll();
+        List<ProductItemDTO> dtos = mapper.toDtoList(products);
         return ResponseEntity.ok(dtos);
     }
 
@@ -72,11 +72,11 @@ public class ProductController {
     public ResponseEntity<ProductItemDTO> getProductById(
             @PathVariable Long productId
     ) {
-        Optional<ProductEntity> optionalProduct = productRepo.findById(productId);
-
-        return optionalProduct
-                .map(productEntity -> ResponseEntity.ok(productMapper.toDto(productEntity)))
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        var optionalProduct = prodRepo.findById(productId);
+        return optionalProduct.map(
+                productEntity ->
+                ResponseEntity.ok(mapper.toDto(productEntity))
+        ).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // Update a product by ID
@@ -88,19 +88,22 @@ public class ProductController {
             @PathVariable Long productId, 
             @ModelAttribute ProductUpdateDTO dto
     ) {
-        if (!productRepo.existsById(productId)) {
+        if (!prodRepo.existsById(productId)) {
             return ResponseEntity.notFound().build();
         }
 
-        // deleting previous photos
+        // deleting previous pics
         imgRepo.deleteAllById(List.of(dto.getRemoveProductImages()));
 
-        // add here the logic of updating images (strictly necessary)
-        ProductEntity newProduct = productMapper.toProductEntity(dto);
+        ProductEntity newProduct = mapper.toProductEntity(dto);
         newProduct.setId(productId);
-        productRepo.save(newProduct);
 
-        ProductItemDTO updatedDTO = productMapper.toDto(newProduct);
+        // adding new pics
+        SaveImages(newProduct, dto.getNewProductImages());
+
+        newProduct = prodRepo.save(newProduct);
+
+        ProductItemDTO updatedDTO = mapper.toDto(newProduct);
         return ResponseEntity.ok(updatedDTO);
     }
 
@@ -109,13 +112,12 @@ public class ProductController {
     public ResponseEntity<String> deleteProduct(
             @PathVariable Long productId
     ) {
-        Optional<ProductEntity> optionalProduct = productRepo.findById(productId);
-
+        var optionalProduct = prodRepo.findById(productId);
         if (optionalProduct.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 
-        productRepo.deleteById(productId);
+        prodRepo.deleteById(productId);
         return ResponseEntity.ok(JsonUtils.successDeleteJO.toString());
     }
 }
