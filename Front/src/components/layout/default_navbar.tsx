@@ -8,7 +8,7 @@ import { Navbar } from 'flowbite-react';
 export default function DefaultNavbar() {
     return (
         <>
-            {/* <nav>
+            <nav>
                 <Link to="/" className="logo">
                     <img src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" />
                     <span>Store</span>
@@ -23,10 +23,10 @@ export default function DefaultNavbar() {
                             <Link to="/" className="current" aria-current="page">Home</Link>
                         </li>
                         <li>
-                            <Link to="/products" aria-current="page">Products panel</Link>
+                            <Link to="/products" aria-current="page">Prods panel</Link>
                         </li>
                         <li>
-                            <Link to="/categories" aria-current="page">Categories panel</Link>
+                            <Link to="/categories" aria-current="page">Cats panel</Link>
                         </li>
                         <li>
                             <Link to="/products/create">Create a product</Link>
@@ -34,23 +34,9 @@ export default function DefaultNavbar() {
                         <li>
                             <Link to="/categories/create">Create a category</Link>
                         </li>
-                        <li>
-                            <Link to="#">About</Link>
-                        </li>
                     </ul>
                 </div>
-            </nav> */}
-            <Navbar fluid rounded >
-                <Navbar.Brand href="/" className='logo'>
-                    <img src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" />
-                    <span>Store</span>
-                </Navbar.Brand>
-                <Navbar.Toggle />
-                <Navbar.Collapse>
-                    <Navbar.Link active href='/'>Home</Navbar.Link>
-                    <Navbar.Link href='/'>Home</Navbar.Link>
-                </Navbar.Collapse>
-            </Navbar >
+            </nav>
         </>
     );
 }

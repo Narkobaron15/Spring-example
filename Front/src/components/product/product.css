@@ -15,7 +15,7 @@
 }
 
 .form-group label {
-    @apply block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4;
+    @apply text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4;
 }
 
 .form-group textarea {

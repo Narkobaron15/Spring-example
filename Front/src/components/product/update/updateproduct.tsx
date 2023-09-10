@@ -122,7 +122,7 @@ export default function UpdateProduct() {
                     <ErrorMessage name="description" component="div" className="error-message" />
                     <div className="form-group">
                         <div className="md:w-2/12">
-                            <span>Pictures</span>
+                            <label htmlFor="newProductImages">Pictures</label>
                         </div>
                         <div className="md:w-10/12 p-0">
                             <div className="inline overflow-hidden w-32">

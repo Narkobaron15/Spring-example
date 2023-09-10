@@ -9,3 +9,7 @@ body {
 table {
   @apply table-auto;
 }
+
+main {
+  @apply mt-5;
+}
