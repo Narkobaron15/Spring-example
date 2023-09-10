@@ -7,30 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Closes #1 and #2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/OnlineStoreApplication.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/CorsConfig.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/WebResourcesConfig.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/MyErrorController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/BaseImageDTO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/CategoryRepo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/ProductRepo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/ImageUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/JsonUtils.kt" afterDir="false" />
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Converted some files into Kotlin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OnlineStoreApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configurations/CorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configurations/WebResourcesConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/MyErrorController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/BaseImageDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repositories/CategoryRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repositories/ProductRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/ImageUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/JsonUtils.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694270683905</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Converted some files into Kotlin">
+      <option name="closed" value="true" />
+      <created>1694284193300</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1694284193300</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,6 +315,7 @@
     <MESSAGE value="Switched to java (fixed #1 this way)" />
     <MESSAGE value="Implemented WEBP image converting support&#10;Updated navbar&#10;Added 50MB file-size ceiling" />
     <MESSAGE value="Closes #1 and #2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Closes #1 and #2" />
+    <MESSAGE value="Converted some files into Kotlin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Converted some files into Kotlin" />
   </component>
 </project>

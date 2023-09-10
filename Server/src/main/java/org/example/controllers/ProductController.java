@@ -11,6 +11,7 @@ import org.example.repositories.ProductImageRepo;
 import org.example.repositories.ProductRepo;
 import org.example.storage.StorageService;
 import org.example.utils.JsonUtils;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -42,7 +43,10 @@ public class ProductController {
     }
 
     // Create a new product
-    @PostMapping("/create")
+    @PostMapping(
+            value = "/create",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+    )
     public ResponseEntity<ProductItemDTO> createProduct(
             @ModelAttribute ProductCreateDTO createDTO
     ) {
@@ -76,7 +80,10 @@ public class ProductController {
     }
 
     // Update a product by ID
-    @PutMapping("/{productId}")
+    @PutMapping(
+            value = "/{productId}",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+    )
     public ResponseEntity<ProductItemDTO> updateProduct(
             @PathVariable Long productId, 
             @ModelAttribute ProductUpdateDTO dto
