@@ -1,5 +1,5 @@
 import { object, number, string, array } from 'yup';
-import { ERROR_MESSAGES, MAX_FILE_SIZE } from '../env/constants';
+import { ERROR_MESSAGES, MAX_FILE_SIZE, allowedPicTypes } from '../env/constants';
 
 // multi-file picture validations
 const picTest = (value?: any[] | null | undefined) => {
@@ -7,9 +7,8 @@ const picTest = (value?: any[] | null | undefined) => {
         return true; // attachment is optional
 
     // File type check (allowed types - jpeg, png, gif)
-    const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif"];
     for (const file of value) {
-        if (!(file instanceof File) || !allowedTypes.includes(file.type)) {
+        if (!(file instanceof File) || !allowedPicTypes.includes(file.type)) {
             return false;
         }
     }

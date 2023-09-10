@@ -4,7 +4,7 @@ import { ERROR_MESSAGES, MAX_FILE_SIZE, allowedPicTypes } from '../env/constants
 // single-file picture validations
 // attachment is optional in this checks
 const picTest = (value: any) => {
-    // File type check - allowed types are jpeg, png, gif, svg
+    // File type check - allowed types are jpeg, png, svg
     // attachment is optional
     return value ? allowedPicTypes.includes(value.type) : true; 
 }, sizeTest = (value: any) => {

@@ -13,4 +13,4 @@ export const ERROR_MESSAGES = {
     CATEGORY_NOT_FOUND: "Виберіть категорію"
 }
 
-export const allowedPicTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif", "image/svg+xml"];
+export const allowedPicTypes = ["image/jpeg", "image/jpg", "image/png", "image/svg+xml"];
