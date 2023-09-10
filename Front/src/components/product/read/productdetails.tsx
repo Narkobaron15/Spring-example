@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 import { ProductReadModel } from "../../../models/product/product";
-import arrowimg from '../../../assets/arrow.svg'
+import arrowimg from '../../../assets/arrow.svg';
 import { toast } from "react-toastify";
 import api_common from "../../../requests";
 import StringUtils from "../../utils/stringutils";
@@ -40,8 +40,8 @@ export default function ProductDetails() {
                     </div>
                 ))}
             </Carousel>
-            <h1 className="text-left font-semibold mb-1">{product?.name ?? "Loading..."}</h1>
-            <h3 className="text-6xl font-bold mb-10">{StringUtils.PriceToString(product?.price)}</h3>
+            <h1 className="text-left text-3xl font-semibold mb-1">{product?.name ?? "Loading..."}</h1>
+            <h3 className="text-2xl font-bold mb-10">{StringUtils.PriceToString(product?.price)}</h3>
             {/* Attributes, location placeholder */}
             <p className="text-lg">{product?.description}</p>
         </article>

@@ -1,5 +1,5 @@
 import { ProductReadModel } from "../../../models/product/product";
-import arrowimg from '../../../assets/upload.svg'
+import arrowimg from '../../../assets/arrow.svg';
 import { Link } from "react-router-dom";
 import StringUtils from "../../utils/stringutils";
 
@@ -10,10 +10,14 @@ type ProductCardArgs = {
 const MAX_HEADER_LENGTH = 45;
 
 export default function ProductCardComponent({ product }: ProductCardArgs) {
-    const productLink = `/products/details/${product.id}`;
+    const productLink = `/products/${product.id}`;
+
+    // ensure a product is of the correct type
+    product = ProductReadModel.ofObject(product); 
+    
     return (
         <div className="card">
-            {/* <img className="primary-img" src={product.primary_image.lg} alt={product.name} /> */}
+            <img className="primary-img" src={product.primary_image.lg} alt={product.name} />
             <div className="p-5">
                 <h5>
                     <Link to={productLink}>
@@ -21,8 +25,7 @@ export default function ProductCardComponent({ product }: ProductCardArgs) {
                     </Link>
                 </h5>
                 <p>
-                    {product.categoryName} |
-                    {StringUtils.PriceToString(product.price)}
+                    {product.categoryName} | {StringUtils.PriceToString(product.price)}
                 </p>
                 <Link to={productLink} className="tailwind-btn-dark">
                     Детальніше

@@ -37,7 +37,7 @@ export default function ProductRowComponent({ params, removeCallback }: ProductA
                     <img className="rounded-pic mx-4" src={params.primary_image?.sm} alt={params.name} />
                 </td>
                 <td>
-                    <Link to={`/products/details/${params.id}`} className="underline" >
+                    <Link to={`/products/${params.id}`} className="underline" >
                         {StringUtils.ShortenString(params.name, MAX_TITLE_LENGTH)}
                     </Link>
                 </td>
@@ -66,9 +66,9 @@ export default function ProductRowComponent({ params, removeCallback }: ProductA
                 TransitionComponent={Transition}
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description">
-                <DialogTitle>Delete {params.name}?</DialogTitle>
+                <DialogTitle>Delete '{params.name}'?</DialogTitle>
                 <DialogContent>
-                    <DialogContentText>Are you sure that the category '{params.name}' should be deleted?</DialogContentText>
+                    <DialogContentText>Are you sure the product '{params.name}' should be deleted?</DialogContentText>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>

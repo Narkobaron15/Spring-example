@@ -9,6 +9,7 @@ import ProductCards from './components/product/read/productcards';
 import ProductPanel from './components/product/read/productpanel';
 import CreateProduct from './components/product/create/createproduct';
 import UpdateProduct from './components/product/update/updateproduct';
+import ProductDetails from './components/product/read/productdetails';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route index element={<ProductCards />}></Route>
         <Route path='/products'>
           <Route index element={<ProductPanel />}></Route>
+          <Route path=':id' element={<ProductDetails />} />
           <Route path="create" element={<CreateProduct />} />
           <Route path='update/:id' element={<UpdateProduct />} />
         </Route>

@@ -2,16 +2,16 @@ import React from "react";
 
 import { useNavigate } from "react-router-dom";
 import { Field, Formik, Form, ErrorMessage } from "formik";
+import { toast } from "react-toastify";
 
+import Dropzone from "../../common/dropzone/dropzone";
 import { IProductCreateModel, emptyProduct } from "../../../models/product/product";
 import { CategoryItem } from "../../../models/category/category";
 import api_common from "../../../requests";
-import { toast } from "react-toastify";
 import { productCreateSchema } from "../../../validations/productValidation";
 import FilesComponent from "../../common/file/file";
 
 import '../product.css';
-import Dropzone from "../../common/dropzone/dropzone";
 
 export default function CreateProduct() {
     // used for redirecting after successful form submit

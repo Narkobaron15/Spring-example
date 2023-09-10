@@ -2,15 +2,16 @@ import React from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
 import { Field, Formik, Form, ErrorMessage } from "formik";
+import { toast } from "react-toastify";
+
 import { ProductReadModel, IProductUpdateModel, emptyProduct } from "../../../models/product/product";
 import api_common from "../../../requests";
 import { productUpdateSchema } from "../../../validations/productValidation";
 import FilesComponent from "../../common/file/file";
-import { toast } from "react-toastify";
 import ProductImageDTO from "../../../models/product/product_image";
+import Dropzone from "../../common/dropzone/dropzone";
 
 import '../product.css';
-import Dropzone from "../../common/dropzone/dropzone";
 
 export default function UpdateProduct() {
     // used for redirecting after successful form submit
@@ -39,9 +40,8 @@ export default function UpdateProduct() {
             .then(r => {
                 setCurrentImages(r.data.images);
 
-                delete r.data.images; 
+                delete r.data.images;
                 delete r.data.categoryName;
-
                 setCurrentProduct(r.data);
             })
             .catch(catchFn);
@@ -50,8 +50,6 @@ export default function UpdateProduct() {
 
     // the logic of submit button on formik form
     const formikSubmit = (val: IProductUpdateModel) => {
-        console.warn('sent');
-
         setRequestSent(true);
 
         // check if no inspector manipulations were performed
@@ -67,18 +65,12 @@ export default function UpdateProduct() {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
-            })
-            .then(() => navigate("/products"))
+            }).then(() => navigate("/products"))
             .catch(e => {
                 toast.error(e);
                 setRequestSent(false);
             });
     };
-
-    productUpdateSchema.validate(currentProduct)
-    .then(console.log)
-    .catch(console.log)
-    
 
     return (
         <Formik initialValues={currentProduct}

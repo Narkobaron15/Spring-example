@@ -1,11 +1,14 @@
+'use client';
+
 import './default_navbar.css';
 import menusvg from '../../assets/menu.svg';
 import { Link } from 'react-router-dom';
+import { Navbar } from 'flowbite-react';
 
 export default function DefaultNavbar() {
     return (
-        <header>
-            <nav>
+        <>
+            {/* <nav>
                 <Link to="/" className="logo">
                     <img src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" />
                     <span>Store</span>
@@ -36,7 +39,18 @@ export default function DefaultNavbar() {
                         </li>
                     </ul>
                 </div>
-            </nav>
-        </header>
+            </nav> */}
+            <Navbar fluid rounded >
+                <Navbar.Brand href="/" className='logo'>
+                    <img src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" />
+                    <span>Store</span>
+                </Navbar.Brand>
+                <Navbar.Toggle />
+                <Navbar.Collapse>
+                    <Navbar.Link active href='/'>Home</Navbar.Link>
+                    <Navbar.Link href='/'>Home</Navbar.Link>
+                </Navbar.Collapse>
+            </Navbar >
+        </>
     );
 }
