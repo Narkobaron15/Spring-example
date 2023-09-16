@@ -7,6 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Bean
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 
+/**
+ * https://www.baeldung.com/spring-boot-api-key-secret
+ * https://www.baeldung.com/spring-security-csrf
+ */
+
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = ["org.example.repositories"])
 open class OnlineStoreApplication {

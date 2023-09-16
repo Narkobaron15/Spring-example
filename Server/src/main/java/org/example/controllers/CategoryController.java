@@ -10,6 +10,7 @@ import org.example.mappers.CategoryMapper;
 import org.example.repositories.CategoryRepo;
 import org.example.storage.StorageService;
 import org.example.utils.JsonUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
