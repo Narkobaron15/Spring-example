@@ -7,67 +7,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Started adding authentication&#10;TODO: &#10;1) Add different secrets for each user&#10;2) Add docs">
-      <change afterPath="$PROJECT_DIR$/../Front/src/models/Auth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front/src/store/reducers/AuthReducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front/src/store/store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/security/ApplicationConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/security/SecurityConfiguration.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/Roles.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/AccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/account/AuthResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/account/LoginDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/account/RegisterDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/user/UserEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/AccountMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ImageMapper.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/RoleRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/UserRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/UserRoleRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/AccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/SeedService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/SeedServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/categories.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/categories.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/create/createcategory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/category/update/updatecategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/category/update/updatecategory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/layout/default_navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/layout/default_navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/layout/default_navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/layout/default_navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/create/createproduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/create/createproduct.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/components/product/update/updateproduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/components/product/update/updateproduct.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/env/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/env/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/src/main.tsx" afterDir="false" />
+    <list default="true" id="6cda6040-26b8-496b-a06e-e8c0af15e1d9" name="Changes" comment="Added comments&#10;Moved contracts of services to the interfaces">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/generic/AccountService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/generic/JwtService.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OnlineStoreApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/OnlineStoreApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configurations/security/ApplicationConfig.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configurations/CorsConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/CorsConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configurations/WebResourcesConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/WebResourcesConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configurations/security/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/security/ApplicationConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configurations/security/JwtAuthenticationFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/security/JwtAuthenticationFilter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configurations/security/SecurityConfiguration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/configurations/security/SecurityConfiguration.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/product/ProductUpdateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/CategoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/category/CategoryEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/product/ProductEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ProductImageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/product/ProductImageEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/RoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/user/RoleEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/UserEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/UserRoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/user/UserRoleEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/UserRolePK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/user/UserRolePK.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/CustomUserDetailsContextMapper.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/ImageMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductImageMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductImageMapper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mappers/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repositories/CategoryRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/CategoryRepo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repositories/ProductImageRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/ProductImageRepo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repositories/ProductRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repositories/ProductRepo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repositories/UserRepo.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repositories/UserRoleRepo.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/JwtService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/implementations/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/implementations/JwtServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/SeedService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/generic/SeedService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/SeedServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/implementations/SeedServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,11 +34,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="Interface" />
         <option value="Enum" />
         <option value="Kotlin Class" />
         <option value="Kotlin Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -109,35 +65,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "OverrideImplement.generate.javadoc": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/oleks/source/repos/Spring example/Server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "7eb895d24e5ba49e43771896fde572d8",
-    "ts.external.directory.path": "C:\\Users\\oleks\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/oleks/source/repos/Spring example/Server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;7eb895d24e5ba49e43771896fde572d8&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\oleks\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\oleks\source\repos\Spring example\Server\src\main\java\org\example\services" />
@@ -154,9 +110,13 @@
       <recent name="org.example.storage" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="org.example.services.generic" />
       <recent name="org.example.services" />
       <recent name="org.example.dto.category" />
       <recent name="org.example.dto" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="org.example.services.generic" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.mappers" />
@@ -244,7 +204,8 @@
       <workItem from="1695395537383" duration="8814000" />
       <workItem from="1695410948479" duration="778000" />
       <workItem from="1695412501937" duration="12000" />
-      <workItem from="1695449246235" duration="10460000" />
+      <workItem from="1695449246235" duration="10960000" />
+      <workItem from="1695468183619" duration="3606000" />
     </task>
     <task id="LOCAL-00001" summary="Added CategoryController">
       <option name="closed" value="true" />
@@ -406,7 +367,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694870597251</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Finished adding authentication">
+      <option name="closed" value="true" />
+      <created>1695464130995</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1695464130995</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +414,9 @@
     <MESSAGE value="Fixed a warning on unused lambda parameter&#10;#3 fix returned null values on images and category name (fetch issues on DAL)" />
     <MESSAGE value="Started adding authentication&#10;TODO: Add different secrets for each user" />
     <MESSAGE value="Started adding authentication&#10;TODO: &#10;1) Add different secrets for each user&#10;2) Add docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started adding authentication&#10;TODO: &#10;1) Add different secrets for each user&#10;2) Add docs" />
+    <MESSAGE value="Finished adding authentication" />
+    <MESSAGE value="Added comments&#10;Moved contracts of services to the interfaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added comments&#10;Moved contracts of services to the interfaces" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

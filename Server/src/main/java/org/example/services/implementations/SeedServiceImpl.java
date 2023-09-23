@@ -1,4 +1,4 @@
-package org.example.services;
+package org.example.services.implementations;
 
 import lombok.AllArgsConstructor;
 import org.example.constants.Roles;
@@ -8,6 +8,7 @@ import org.example.entities.user.UserRoleEntity;
 import org.example.repositories.RoleRepo;
 import org.example.repositories.UserRepo;
 import org.example.repositories.UserRoleRepo;
+import org.example.services.generic.SeedService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

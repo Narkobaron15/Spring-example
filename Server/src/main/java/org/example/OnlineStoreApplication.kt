@@ -3,7 +3,7 @@ package org.example
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType
 import io.swagger.v3.oas.annotations.security.SecurityScheme
-import org.example.services.SeedService
+import org.example.services.generic.SeedService
 import org.example.storage.StorageService
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication

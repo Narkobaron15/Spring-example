@@ -22,6 +22,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Collection;
 
+/**
+ * Configuration for Spring Security
+ * <p>
+ * Contains beans for authentication management via {@link UserEntity}
+ */
 @Configuration
 public class ApplicationConfig {
     private final UserRepo userRepo;

@@ -1,11 +1,13 @@
-package org.example.services;
+package org.example.services.implementations;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.Nonnull;
 import org.example.entities.user.UserEntity;
 import org.example.entities.user.UserRoleEntity;
 import org.example.repositories.UserRoleRepo;
+import org.example.services.generic.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,24 +15,35 @@ import java.security.Key;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * <h4>JWT Service</h4>
+ *
+ * <p>A service to generate and validate JWT tokens</p>
+ */
 @Service
-public class JwtService {
+public class JwtServiceImpl implements JwtService {
     private final UserRoleRepo userRoleRepo;
 
     // A key to encrypt a token
     private static final String jwtSecretString = "404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970";
+
     private static final byte[] jwtSecret = Decoders.BASE64.decode(jwtSecretString);
 
     // Owner of the token. Write your own domain later
     private static final String jwtIssuer = "step.io";
 
+    // 1 week: 7 * 24 * 60 * 60 * 1000 = 604800000
+    private static final long tokenLifespan = 604800000;
+
     @Autowired
-    public JwtService(UserRoleRepo userRoleRepo) {
+    public JwtServiceImpl(UserRoleRepo userRoleRepo) {
         this.userRoleRepo = userRoleRepo;
     }
 
     // Method to generate an access token for a specific user
-    public String generateAccessToken(UserEntity user) {
+    @Nonnull
+    @Override
+    public String generateAccessToken(@Nonnull UserEntity user) {
         List<UserRoleEntity> roles = userRoleRepo.findByUser(user);
         return Jwts.builder()
                 .setSubject(user.getId() + "," + user.getUsername())
@@ -42,7 +55,7 @@ public class JwtService {
                 )
                 .setIssuer(jwtIssuer)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + tokenLifespan))
                 .signWith(signInKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -52,7 +65,9 @@ public class JwtService {
     }
 
     // Get the user ID from the token
-    public String getUserId(String token) {
+    @Nonnull
+    @Override
+    public String getUserId(@Nonnull String token) {
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(jwtSecret)
                 .build()
@@ -62,7 +77,9 @@ public class JwtService {
     }
 
     // Get the username from the token
-    public String getUsername(String token) {
+    @Nonnull
+    @Override
+    public String getUsername(@Nonnull String token) {
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(jwtSecret)
                 .build()
@@ -72,7 +89,9 @@ public class JwtService {
     }
 
     // Get the expiration date of the token
-    public Date getExpirationDate(String token) {
+    @Nonnull
+    @Override
+    public Date getExpirationDate(@Nonnull String token) {
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(jwtSecret)
                 .build()
@@ -82,7 +101,8 @@ public class JwtService {
     }
 
     // Validate whether our token is valid and was issued by our server
-    public boolean validate(String token) {
+    @Override
+    public boolean validate(@Nonnull String token) {
         try {
             Jwts.parserBuilder().setSigningKey(jwtSecret).build().parseClaimsJws(token);
             return true;

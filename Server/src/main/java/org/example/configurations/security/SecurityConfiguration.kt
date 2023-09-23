@@ -12,6 +12,12 @@ import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 
+/**
+ * Security configuration class
+ * @param jwtAuthFilter Filter that runs once per request and checks if
+ * the request contains a valid JWT token.
+ * @param authenticationProvider Authentication provider
+ */
 @Configuration
 @EnableWebSecurity
 open class SecurityConfiguration (
@@ -19,8 +25,13 @@ open class SecurityConfiguration (
     //    private val logoutHandler: LogoutHandler,
     private val authenticationProvider: AuthenticationProvider
 ) {
-//
-
+    /**
+     * Security filter chain configuration
+     *
+     * Specifies security policy for different endpoints
+     *
+     * @param http Object that allows configuring web based security for specific http requests
+     */
     @Bean
     @Throws(Exception::class)
     open fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
@@ -39,6 +50,7 @@ open class SecurityConfiguration (
                     .requestMatchers("/rest-api-docs/**").permitAll()
                     .requestMatchers("/swagger-ui/**").permitAll()
                     .requestMatchers("/api/categories/**").hasAuthority(Roles.Admin)
+                    .requestMatchers("/error/**").permitAll()
                     .requestMatchers(HttpMethod.POST, "/api/categories").hasAuthority(Roles.Admin)
                     .requestMatchers(HttpMethod.GET, "/api/products").permitAll()
                     //.requestMatchers("/api/products/**").hasAuthority(Roles.Admin)

@@ -1,11 +1,14 @@
-package org.example.services;
+package org.example.services.implementations;
 
+import jakarta.annotation.Nonnull;
 import org.example.dto.account.AuthResponseDTO;
 import org.example.dto.account.LoginDTO;
 import org.example.dto.account.RegisterDTO;
 import org.example.entities.user.UserEntity;
 import org.example.mappers.AccountMapper;
 import org.example.repositories.UserRepo;
+import org.example.services.generic.AccountService;
+import org.example.services.generic.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,20 +17,22 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class AccountService {
+public class AccountServiceImpl implements AccountService {
     private final UserRepo userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AccountMapper accountMapper;
 
     @Autowired
-    public AccountService(UserRepo userRepository, PasswordEncoder passwordEncoder, JwtService jwtService, AccountMapper accountMapper) {
+    public AccountServiceImpl(UserRepo userRepository, PasswordEncoder passwordEncoder, JwtService jwtService, AccountMapper accountMapper) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
         this.accountMapper = accountMapper;
     }
 
+    @Nonnull
+    @Override
     public AuthResponseDTO login(LoginDTO request) {
         UserEntity user = userRepository.findByUsername(request.getEmail())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
@@ -42,6 +47,7 @@ public class AccountService {
         return response;
     }
 
+    @Override
     public void register(RegisterDTO request) {
         Optional<UserEntity> user = userRepository.findByUsername(request.getEmail());
         if (user.isPresent()) {

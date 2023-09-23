@@ -5,11 +5,14 @@ import lombok.RequiredArgsConstructor;
 import org.example.dto.account.AuthResponseDTO;
 import org.example.dto.account.LoginDTO;
 import org.example.dto.account.RegisterDTO;
-import org.example.services.AccountService;
+import org.example.services.generic.AccountService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("${apiPrefix}/account")
@@ -25,6 +28,7 @@ public class AccountController {
             @Valid @ModelAttribute LoginDTO DTO
     ) {
         try {
+            System.out.println(DTO);
             var auth = service.login(DTO);
             return ResponseEntity.ok(auth);
         }

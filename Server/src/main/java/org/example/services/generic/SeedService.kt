@@ -1,4 +1,4 @@
-package org.example.services
+package org.example.services.generic
 
 interface SeedService {
     fun seedRoleData()
