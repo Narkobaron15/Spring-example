@@ -1,5 +1,9 @@
 package org.example
 
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType
+import io.swagger.v3.oas.annotations.security.SecurityScheme
+import org.example.services.SeedService
 import org.example.storage.StorageService
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
@@ -14,12 +18,15 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = ["org.example.repositories"])
+@SecurityScheme(name = "my-api", scheme = "bearer", type = SecuritySchemeType.HTTP, `in` = SecuritySchemeIn.HEADER)
 open class OnlineStoreApplication {
     @Bean
-    open fun init(service: StorageService): CommandLineRunner {
+    open fun init(service: StorageService, seeder: SeedService): CommandLineRunner {
         return CommandLineRunner {
             try {
                 service.init()
+                seeder.seedRoleData()
+                seeder.seedUserData()
             } catch (ex: Exception) {
                 println("[ERROR] " + ex.message)
             }

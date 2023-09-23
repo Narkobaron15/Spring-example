@@ -1,0 +1,19 @@
+.auth-form button {
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800;
+}
+
+form {
+    @apply max-w-md mx-auto p-6 bg-white rounded shadow-md;
+}
+
+.auth-form label {
+    @apply block text-sm font-medium text-gray-700;
+}
+
+.auth-form input:not([type="file"]) {
+    @apply mt-1 px-3 py-2 w-full border rounded-md;
+}
+
+.auth-form textarea {
+    @apply w-full;
+}

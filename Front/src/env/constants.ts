@@ -14,3 +14,9 @@ export const ERROR_MESSAGES = {
 }
 
 export const allowedPicTypes = ["image/jpeg", "image/jpg", "image/png", "image/svg+xml"];
+
+export const multipartHeaders = {
+    headers: {
+        "Content-Type": "multipart/form-data",
+    },
+};

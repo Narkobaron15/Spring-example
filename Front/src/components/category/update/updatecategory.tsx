@@ -12,6 +12,7 @@ import { catUpdateSchema } from '../../../validations/categoryValidation';
 
 import defaultPic from '../../../assets/upload.svg';
 import '../categories.css';
+import { multipartHeaders } from '../../../env/constants';
 
 export default function UpdateCategory() {
     const navigate = useNavigate();
@@ -39,11 +40,7 @@ export default function UpdateCategory() {
         setRequestSent(true);
 
         api_common.put('/categories/' + category.id, val,
-            { // http request params
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            })
+            multipartHeaders)
             .then(() => navigate("/categories/"))
             .catch(err => {
                 setRequestSent(false);

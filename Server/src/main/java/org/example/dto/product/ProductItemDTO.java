@@ -1,7 +1,6 @@
 package org.example.dto.product;
 
 import lombok.Data;
-import org.example.entities.CategoryEntity;
 
 import java.util.List;
 

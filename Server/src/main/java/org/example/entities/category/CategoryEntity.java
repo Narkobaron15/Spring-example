@@ -1,10 +1,10 @@
-package org.example.entities;
+package org.example.entities.category;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+import org.example.entities.product.ProductEntity;
 
 import java.util.List;
 

@@ -2,7 +2,6 @@ package org.example.dto.product;
 
 import jakarta.annotation.Nullable;
 import lombok.Data;
-import org.example.entities.CategoryEntity;
 import org.springframework.web.multipart.MultipartFile;
 
 @Data

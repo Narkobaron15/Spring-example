@@ -12,6 +12,7 @@ import { productCreateSchema } from "../../../validations/productValidation";
 import FilesComponent from "../../common/file/file";
 
 import '../product.css';
+import { multipartHeaders } from "../../../env/constants";
 
 export default function CreateProduct() {
     // used for redirecting after successful form submit
@@ -49,11 +50,7 @@ export default function CreateProduct() {
 
         // posting request to create the product onto creation path
         api_common.post("/products/create", val,
-            { // http request params
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            })
+            multipartHeaders)
             .then(() => navigate("/products"))
             .catch(e => {
                 toast.error(e.message);

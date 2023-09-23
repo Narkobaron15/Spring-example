@@ -1,11 +1,12 @@
 package org.example.controllers;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.AllArgsConstructor;
 import org.example.dto.product.ProductCreateDTO;
 import org.example.dto.product.ProductItemDTO;
 import org.example.dto.product.ProductUpdateDTO;
-import org.example.entities.ProductEntity;
-import org.example.entities.ProductImageEntity;
+import org.example.entities.product.ProductEntity;
+import org.example.entities.product.ProductImageEntity;
 import org.example.mappers.ProductMapper;
 import org.example.repositories.ProductImageRepo;
 import org.example.repositories.ProductRepo;
@@ -16,11 +17,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @AllArgsConstructor
 @RequestMapping("${apiPrefix}/products")
+@SecurityRequirement(name = "my-api")
 public class ProductController {
     private final ProductRepo prodRepo;
     private final ProductImageRepo imgRepo;
@@ -29,8 +32,10 @@ public class ProductController {
 
     private void SaveImages(ProductEntity product, MultipartFile[] files) {
         int i = 0;
+
         for (MultipartFile file : files) {
             String path = storage.store(file);
+
             ProductImageEntity img = ProductImageEntity
                     .builder()
                     .filename(path)
@@ -38,6 +43,8 @@ public class ProductController {
                     .priority(i++)
                     .build();
             imgRepo.save(img);
+
+            product.getProductImages().add(img);
         }
     }
 
@@ -50,8 +57,9 @@ public class ProductController {
             @ModelAttribute ProductCreateDTO createDTO
     ) {
         ProductEntity entity = mapper.toProductEntity(createDTO);
+        entity.setProductImages(new ArrayList<>());
 
-        entity = prodRepo.save(entity);
+        prodRepo.save(entity);
         SaveImages(entity, createDTO.getProductImages());
 
         ProductItemDTO itemDTO = mapper.toDto(entity);

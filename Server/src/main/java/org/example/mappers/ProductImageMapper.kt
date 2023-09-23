@@ -1,7 +1,7 @@
 package org.example.mappers
 
 import org.example.dto.product.ProductImageDTO
-import org.example.entities.ProductImageEntity
+import org.example.entities.product.ProductImageEntity
 import org.mapstruct.Mapper
 import org.mapstruct.Mapping
 

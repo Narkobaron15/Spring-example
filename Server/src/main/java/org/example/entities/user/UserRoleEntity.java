@@ -1,4 +1,4 @@
-package org.example.entities;
+package org.example.entities.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,6 +18,7 @@ public class UserRoleEntity {
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
     private UserEntity user;
+
     @Id
     @ManyToOne
     @JoinColumn(name="role_id", nullable = false)

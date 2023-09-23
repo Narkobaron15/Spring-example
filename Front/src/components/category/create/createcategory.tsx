@@ -12,6 +12,7 @@ import { catCreateSchema } from '../../../validations/categoryValidation';
 import '../categories.css';
 import defaultPic from '../../../assets/upload.svg';
 import { CategoryCreateItem, catCreateInitVals } from '../../../models/category/category';
+import { multipartHeaders } from '../../../env/constants';
 
 export default function CreateCategory() {
     const navigate = useNavigate();
@@ -21,11 +22,7 @@ export default function CreateCategory() {
         setRequestSent(true);
 
         api_common.post('/categories/create', val,
-            { // http request params
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            })
+            multipartHeaders)
             .then(() => navigate("/categories"))
             .catch(err => {
                 setRequestSent(false);

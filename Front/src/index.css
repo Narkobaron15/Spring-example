@@ -13,3 +13,7 @@ table {
 main {
   @apply mt-5;
 }
+
+.error-message {
+    @apply text-red-500 text-sm;
+}

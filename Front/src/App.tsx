@@ -10,6 +10,8 @@ import ProductPanel from './components/product/read/productpanel';
 import CreateProduct from './components/product/create/createproduct';
 import UpdateProduct from './components/product/update/updateproduct';
 import ProductDetails from './components/product/read/productdetails';
+import AuthPage from './components/auth/login/authpage';
+import RegisterPage from './components/auth/register/registerpage';
 
 export default function App() {
   return (
@@ -17,15 +19,23 @@ export default function App() {
       <Route path='/' element={<Layout />}>
         <Route index element={<ProductCards />}></Route>
         <Route path='/products'>
-          <Route index element={<ProductPanel />}></Route>
           <Route path=':id' element={<ProductDetails />} />
           <Route path="create" element={<CreateProduct />} />
           <Route path='update/:id' element={<UpdateProduct />} />
         </Route>
-        <Route path='/categories'>
-          <Route index element={<CategoryPanel />} />
-          <Route path="create" element={<CreateCategory />} />
-          <Route path='update/:id' element={<UpdateCategory />} />
+        <Route path='/account'>
+          {/* <Route index element={<AccountPage />} /> */}
+          <Route path='auth' element={<AuthPage />} />
+          <Route path='register' element={<RegisterPage />} />
+        </Route>
+        <Route path='/admin'>
+          {/* <Route index element={<AdminPage />} /> */}
+          <Route path='products' element={<ProductPanel />}></Route>
+          <Route path='categories'>
+            <Route index element={<CategoryPanel />} />
+            <Route path="create" element={<CreateCategory />} />
+            <Route path='update/:id' element={<UpdateCategory />} />
+          </Route>
         </Route>
       </Route>
       <Route path='*' element={<NotFound />} />

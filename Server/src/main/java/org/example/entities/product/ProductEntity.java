@@ -1,7 +1,8 @@
-package org.example.entities;
+package org.example.entities.product;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.example.entities.category.CategoryEntity;
 
 import java.util.List;
 

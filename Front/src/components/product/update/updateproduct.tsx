@@ -12,6 +12,7 @@ import ProductImageDTO from "../../../models/product/product_image";
 import Dropzone from "../../common/dropzone/dropzone";
 
 import '../product.css';
+import { multipartHeaders } from "../../../env/constants";
 
 export default function UpdateProduct() {
     // used for redirecting after successful form submit
@@ -61,11 +62,7 @@ export default function UpdateProduct() {
 
         // posting request to update the product
         api_common.put(`/products/${id}`, val,
-            { // http request params
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            }).then(() => navigate("/products"))
+            multipartHeaders).then(() => navigate("/products"))
             .catch(e => {
                 toast.error(e);
                 setRequestSent(false);

@@ -1,4 +1,4 @@
-package org.example.entities;
+package org.example.entities.product;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

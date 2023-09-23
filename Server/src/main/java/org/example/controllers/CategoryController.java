@@ -1,16 +1,16 @@
 package org.example.controllers;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.category.CategoryCreateDTO;
 import org.example.dto.category.CategoryItemDTO;
 import org.example.dto.category.CategoryUpdateDTO;
-import org.example.entities.CategoryEntity;
+import org.example.entities.category.CategoryEntity;
 import org.example.mappers.CategoryMapper;
 import org.example.repositories.CategoryRepo;
 import org.example.storage.StorageService;
 import org.example.utils.JsonUtils;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +29,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "${apiPrefix}/categories")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "my-api")
 public class CategoryController {
     private final CategoryRepo catRepo;
     private final CategoryMapper mapper;
